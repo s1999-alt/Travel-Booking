@@ -1,14 +1,21 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import navCSS from './../Nav/Nav.module.css'
 
 const Nav = () => {
+
+  const menu = useRef()
+
+  const MenuHandler = () =>{
+    menu.current.classList.toggle(navCSS.activeMenu)
+  }
+
   return (
     <div className={navCSS.Nav_wrapper}>
       <div className={navCSS.logo}>
         <a href="#">TripTrails <span>.</span></a>
       </div>
 
-      <ul>
+      <ul ref={menu}>
         <li><a href="">Home</a></li>
         <li><a href="">Trips</a></li>
         <li><a href="">Destinations</a></li>
@@ -26,7 +33,7 @@ const Nav = () => {
           <i className="ri-phone-line"></i>
           <p>+91 9633911996 <small>Call Travel Agent</small></p>
         </div>
-        <i className='ri-menu-2-line' id={navCSS.bars}></i>
+        <i className='ri-menu-2-line' onClick={MenuHandler} id={navCSS.bars}></i>
       </div>
 
     </div>
