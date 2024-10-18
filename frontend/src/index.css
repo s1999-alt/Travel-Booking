@@ -20,6 +20,14 @@
   gap: 22px;
 }
 
+.section{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 80px 8%;
+}
+
 
 
 
