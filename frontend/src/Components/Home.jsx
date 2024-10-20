@@ -6,6 +6,7 @@ import Trips from './Trips/Trips'
 import Search from './Searches/Search'
 import About from './About/About'
 import Testimonial from './Testimonial/Testimonial'
+import Destinations from './Destinations/Destinations'
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
         <About/>
       </div>
       <Testimonial/>
+      <Destinations/>
     </>
   )
 }
