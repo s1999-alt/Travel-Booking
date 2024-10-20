@@ -5,6 +5,7 @@ import Memories from './Memories/Memories'
 import Trips from './Trips/Trips'
 import Search from './Searches/Search'
 import About from './About/About'
+import Testimonial from './Testimonial/Testimonial'
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <div className="App">
         <About/>
       </div>
+      <Testimonial/>
     </>
   )
 }
