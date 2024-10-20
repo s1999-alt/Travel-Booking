@@ -4,6 +4,7 @@ import Header from './Header/Header'
 import Memories from './Memories/Memories'
 import Trips from './Trips/Trips'
 import Search from './Searches/Search'
+import About from './About/About'
 
 const Home = () => {
   return (
@@ -15,6 +16,9 @@ const Home = () => {
       </div>
       <Trips/>
       <Search/>
+      <div className="App">
+        <About/>
+      </div>
     </>
   )
 }
