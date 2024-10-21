@@ -1,8 +1,10 @@
 import React, { useRef } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
 import navCSS from './../Nav/Nav.module.css'
 
 const Nav = () => {
-
+  
+  const navigate = useNavigate()
   const menu = useRef()
 
   const MenuHandler = () =>{
@@ -16,11 +18,11 @@ const Nav = () => {
       </div>
 
       <ul ref={menu}>
-        <li><a href="">Home</a></li>
-        <li><a href="">Trips</a></li>
-        <li><a href="">Destinations</a></li>
-        <li><a href="">Searches</a></li>
-        <li><a href="">About</a></li>
+        <li><a href=""><NavLink to="/">Home</NavLink></a></li>
+        <li><a href=""><NavLink to="/">Trips</NavLink></a></li>
+        <li><a href=""><NavLink to="/">Destinations</NavLink></a></li>
+        <li><a href=""><NavLink to="/">Searches</NavLink></a></li>
+        <li><a href=""><NavLink to="/">About</NavLink></a></li>
       </ul>
 
       <div className={navCSS.nav_btns}>
