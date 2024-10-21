@@ -1,10 +1,15 @@
 import './App.css';
-import Home from './Components/Home';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import UserWrapper from './wrapper/UserWrapper';
 
 function App() {
   return (
     <>
-      <Home/>
+     <Router>
+      <Routes>
+        <Route path='*' element={<UserWrapper/>}/>
+      </Routes>
+     </Router>
     </>
   );
 }
