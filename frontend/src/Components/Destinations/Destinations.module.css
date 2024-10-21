@@ -1,3 +1,13 @@
+.Destinations_Wrapper{
+  padding: 80px 13% !important;
+}
+
+.Destinations_Wrapper h4{
+  font-weight: bold; 
+  font-size: 35px;
+  color: #333;
+}
+
 .DestinationCards{
   display: grid;
   grid-template-columns: repeat(3,1fr);

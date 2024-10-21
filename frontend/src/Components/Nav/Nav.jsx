@@ -21,7 +21,6 @@ const Nav = () => {
         <li><a href="">Destinations</a></li>
         <li><a href="">Searches</a></li>
         <li><a href="">About</a></li>
-        <li><a href="">Destinations</a></li>
       </ul>
 
       <div className={navCSS.nav_btns}>

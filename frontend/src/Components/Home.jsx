@@ -7,6 +7,8 @@ import Search from './Searches/Search'
 import About from './About/About'
 import Testimonial from './Testimonial/Testimonial'
 import Destinations from './Destinations/Destinations'
+import CallToAction from './Footer/CallToAction'
+import Footer from './Footer/Footer'
 
 const Home = () => {
   return (
@@ -23,6 +25,10 @@ const Home = () => {
       </div>
       <Testimonial/>
       <Destinations/>
+      <div className="App">
+        <CallToAction/>
+      </div>
+      <Footer/>
     </>
   )
 }

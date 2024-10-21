@@ -6,6 +6,7 @@
   background-color: #ebf3ff;
   z-index: 1;
   position: relative;
+  padding: 80px 13% !important;
 }
 
 .Testimonial_Wrapper::after{

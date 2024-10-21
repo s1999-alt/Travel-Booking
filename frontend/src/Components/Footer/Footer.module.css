@@ -1,0 +1,143 @@
+.Footer_Wrapper{
+  background-color: #1e1e1e;
+  padding: 40px 10% !important;
+  margin-top: 80px;
+  z-index: 1;
+  position: relative;
+}
+
+.Footer_Wrapper::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(../../assets/topographic-tile-10.png);
+  z-index: -1;
+  opacity: 0.06;
+}
+
+.top_container{
+  display: flex;
+  width:100%;
+  padding: 25px 0;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.2px solid rgba(255, 255, 255, 0.3);
+}
+
+.top_container .logo a{
+  font-size: 25px;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.top_container .social{
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.top_container .social i{
+  height: 34px;
+  width: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  color: #1e1e1e;
+  font-size: 18px;
+}
+
+.bottom_container{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 35px;
+  padding-bottom: 30px;
+}
+
+.bottom_container .footerLinks{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom_container .footerLinks h5{
+  color: #fff;
+  font-size: 19px;
+}
+
+.bottom_container .footerLinks ul{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 25px;
+  padding-left: 0;
+}
+
+.bottom_container .footerLinks ul li a{
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 300;
+  font-size: 14px;
+  transition: .6s; 
+  text-decoration: none;
+}
+
+.bottom_container .footerLinks ul li:hover a{
+  color: #fff;
+}
+
+.bottom_container .footerLinks p{
+  color: rgba(255, 255, 255, 0.2);
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.inputWrapper{
+  height: 25px;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  align-items: center;  
+}
+
+.inputWrapper input{
+  width: 80%;
+  height: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
+.inputWrapper_button{
+  height: 32px;
+  width: 110px;
+  border-radius: 30px;
+  background: linear-gradient(270deg, rgb(255, 75, 55) , rgb(156, 16, 0));
+  color: #fff;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+@media screen and (max-width:900px) {
+  .bottom_container{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media screen and (max-width:500px) {
+  .bottom_container{
+    grid-template-columns: repeat(1,1fr);
+  }
+
+  .bottom_container .footerLinks{
+    align-items: center;
+    text-align: center;
+  }
+
+}
+
+
