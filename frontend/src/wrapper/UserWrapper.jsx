@@ -3,6 +3,7 @@ import { Outlet, useRoutes } from 'react-router-dom'
 import Nav from '../Components/Nav/Nav'
 import Footer from '../Components/Footer/Footer'
 import RegisterPage from '../pages/register/RegisterPage'
+import LoginPage from '../pages/login/LoginPage'
 import Home from '../pages/Home/Home'
 
 const UserWrapper = () => {
@@ -20,7 +21,8 @@ const UserWrapper = () => {
 
       children:[
         {path: "/", element: <Home/>},
-        {path: "/register/", element: <RegisterPage/>}
+        {path: "/register/", element: <RegisterPage/>},
+        {path: "/login/", element: <LoginPage/>},
       ]
 
     }

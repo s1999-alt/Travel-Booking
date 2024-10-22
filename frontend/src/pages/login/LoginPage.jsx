@@ -8,10 +8,10 @@ import {
   MDBInput,
   MDBCheckbox,
 } from 'mdb-react-ui-kit';
-import './register.css';
+import '../register/register.css'
 import astronaut from '../../assets/astronaut.json'
 
-function RegisterPage() {
+function LoginPage() {
   return (
     <MDBContainer fluid className="p-5 my-5 h-custom">
 
@@ -31,7 +31,7 @@ function RegisterPage() {
         <MDBCol md="7" lg="5">
 
           <div className="divider d-flex align-items-center my-4">
-            <p className="text-center fw-bold mx-3 mb-0">Sign Up / Register</p>
+            <p className="text-center fw-bold mx-3 mb-0">Login</p>
           </div>
 
           <MDBInput
@@ -42,16 +42,6 @@ function RegisterPage() {
             type="text"
             size="lg"
           />
-
-          <MDBInput
-            wrapperClass="mb-4"
-            label="Email address"
-            id="formControlLg"
-            name='email'
-            type="email"
-            size="lg"
-          />
-          
 
           <MDBInput
             wrapperClass="mb-4"
@@ -78,16 +68,17 @@ function RegisterPage() {
               id="flexCheckDefault"
               label="Remember me"
             />
+            <a href="!#">Forgot password?</a>
           </div>
 
           <div className="text-center text-md-start mt-4 pt-2">
             <MDBBtn className="mb-0 px-5" size="lg">
-              Register
+              Login
             </MDBBtn>
             <p className="small fw-bold mt-2 pt-1 mb-2">
-              Have an account?{' '}
+              Don't have an account?{' '}
               <a href="#!" className="link-danger">
-                Login
+                Register
               </a>
             </p>
           </div>
@@ -100,4 +91,4 @@ function RegisterPage() {
   );
 }
 
-export default RegisterPage;
+export default LoginPage;

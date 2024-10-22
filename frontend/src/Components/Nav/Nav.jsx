@@ -32,7 +32,7 @@ const Nav = () => {
         </div>
         
         <div className={navCSS.auth_wrapper}>
-          <NavLink to="/login" className={navCSS.auth_link}>Login</NavLink>
+          <NavLink to="/login/" className={navCSS.auth_link}>Login</NavLink>
           <span>|</span>
           <NavLink to="/register/" className={navCSS.auth_link}>Register</NavLink>
         </div>
