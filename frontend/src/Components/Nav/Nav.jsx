@@ -30,10 +30,13 @@ const Nav = () => {
           <i className="ri-search-line"></i>
           <input type="text" placeholder='Search Places'/>
         </div>
-        <div className={navCSS.CallBtn}>
-          <i className="ri-phone-line"></i>
-          <p>+91 9633911996 <small>Call Travel Agent</small></p>
+        
+        <div className={navCSS.auth_wrapper}>
+          <NavLink to="/login" className={navCSS.auth_link}>Login</NavLink>
+          <span>|</span>
+          <NavLink to="/register/" className={navCSS.auth_link}>Register</NavLink>
         </div>
+        
         <i className='ri-menu-2-line' onClick={MenuHandler} id={navCSS.bars}></i>
       </div>
 

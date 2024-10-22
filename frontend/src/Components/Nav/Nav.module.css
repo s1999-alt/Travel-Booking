@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 2%;
+  padding: 0 4%;
   border: 1px solid #1e1e1e;
   border-radius: 12px;
   position: fixed;
@@ -87,24 +87,25 @@
   color: #1e1e1e;
 }
 
-.nav_btns .CallBtn {
+
+.auth_wrapper {
   display: flex;
-  width: 200px;
   align-items: center;
-  font-size: 14px;
-  gap: 12px;
+  gap: 5px;
 }
 
-.nav_btns .CallBtn i{
-  font-size: 17px;
+.auth_link {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1e1e1e;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.auth_link:hover {
   color: rgb(231, 76, 60);
 }
 
-.nav_btns .CallBtn p {
-  margin: 0;
-  font-size: 12px;
-  font-weight: 600;
-}
 
 #bars{
   padding: 7px;

@@ -34,20 +34,39 @@ function RegisterPage() {
             <p className="text-center fw-bold mx-3 mb-0">Sign Up / Register</p>
           </div>
 
-          {/* Email Input */}
+          <MDBInput
+            wrapperClass="mb-4"
+            label="Username"
+            id="formControlLg"
+            name='username'
+            type="text"
+            size="lg"
+          />
+
           <MDBInput
             wrapperClass="mb-4"
             label="Email address"
             id="formControlLg"
+            name='email'
             type="email"
             size="lg"
           />
           
-          {/* Password Input */}
+
           <MDBInput
             wrapperClass="mb-4"
             label="Password"
+            name='password'
             id="formControlLg"
+            type="password"
+            size="lg"
+          />
+
+          <MDBInput
+            wrapperClass="mb-4"
+            label="Confirm Password"
+            id="formControlLg"
+            name='password2'
             type="password"
             size="lg"
           />
