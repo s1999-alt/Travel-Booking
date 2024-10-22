@@ -1,5 +1,6 @@
-from django.urls import path, include
+from django.urls import path
+from .views import PackageListView
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
+    path('packages/', PackageListView.as_view(), name='package-list'),
 ]

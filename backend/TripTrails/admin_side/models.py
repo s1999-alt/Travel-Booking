@@ -50,6 +50,9 @@ class Destination(models.Model):
   description = models.TextField()
   image = models.ImageField(upload_to='package_images/', blank=True, null=True)
 
+  def __str__(self):
+    return self.destination_name
+
 
 class Packages(models.Model):
   package_name = models.CharField(max_length=50, unique=True)
