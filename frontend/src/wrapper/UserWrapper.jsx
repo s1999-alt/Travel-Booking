@@ -2,7 +2,8 @@ import React from 'react'
 import { Outlet, useRoutes } from 'react-router-dom'
 import Nav from '../Components/Nav/Nav'
 import Footer from '../Components/Footer/Footer'
-import Home from '../Components/Home'
+import RegisterPage from '../pages/register/RegisterPage'
+import Home from '../pages/Home/Home'
 
 const UserWrapper = () => {
   const routes = useRoutes([
@@ -18,7 +19,8 @@ const UserWrapper = () => {
       ),
 
       children:[
-        {path: "/", element: <Home/>}
+        {path: "/", element: <Home/>},
+        {path: "/register/", element: <RegisterPage/>}
       ]
 
     }

@@ -26,6 +26,11 @@
   padding: 60px 8%;
 }
 
+/* src/index.css or src/App.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 
 
