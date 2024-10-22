@@ -73,7 +73,7 @@ class Packages(models.Model):
   
 
 class PackageImages(models.Model):
-  package = models.ForeignKey("app.Model", related_name='images', on_delete=models.CASCADE)
+  package = models.ForeignKey(Packages, related_name='images', on_delete=models.CASCADE)
   image = models.ImageField(upload_to="package_images/", default="", null=True, blank=True)
 
 
@@ -84,7 +84,3 @@ class Itinarary(models.Model):
 
   def __str__(self):
     return f"{self.package.package_name} - Day{self.day_number}"
-
-
-
-

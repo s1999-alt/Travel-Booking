@@ -10,3 +10,4 @@ admin.site.register(Destination)
 admin.site.register(Packages)
 admin.site.register(PackageImages)
 admin.site.register(Itinarary)
+
