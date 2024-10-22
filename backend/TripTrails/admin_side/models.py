@@ -79,6 +79,9 @@ class PackageImages(models.Model):
   package = models.ForeignKey(Packages, related_name='images', on_delete=models.CASCADE)
   image = models.ImageField(upload_to="package_images/", default="", null=True, blank=True)
 
+  def __str__(self):
+    return self.package.package_name
+
 
 class Itinarary(models.Model):
   package = models.ForeignKey(Packages , on_delete=models.CASCADE)
