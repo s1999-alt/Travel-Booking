@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Packages, Category, PackageImages, Inclusions, Exclusions, Continent, Hotels
+from .models import Packages, Category, PackageImages, Inclusions, Exclusions, Continent, Hotels, Itinarary
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -67,5 +67,11 @@ class PackageSerializer(serializers.ModelSerializer):
   def create(self, validated_data):
     package = Packages.objects.create(**validated_data)
     return package
+  
+
+class ItinararySerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Itinarary
+    fields = '__all__'
 
   

@@ -242,8 +242,8 @@
 }
 
 .in-hot-cane h3 {
-  font-size: 16px;
-  color: #595858;
+  font-size: 17px;
+  color: #000;
   margin: 0px;
   padding: 0 0;
   display: inline-block;
@@ -253,15 +253,23 @@
   text-overflow: ellipsis;
 }
 
+.in-hot-cane span{
+  color: #000;
+  font-size: 15px;
+  font-weight: 500;
+}
+
 .hol-str-ico {
   margin: 0px;
   width: auto;
   float: left;
-  padding: 5px 0;
-  width: 20px;  /* Adjust the desired width */
-  height: 20px; /* Adjust the desired height */
+  padding: 3px 0;
+  width: 40px;  
+  height: 40px; 
   
 }
+
+
 
 .clr {
   clear: both;
@@ -270,7 +278,7 @@
 .holi-can-holiy{
   width: 100%;
   padding: 0px;
-  margin: 0px;
+  margin: 4px;
   float: left;
 }
 

@@ -23,7 +23,9 @@ const TourDetails = () => {
       try {
         const responce = await UserAxios.get(`api/user/packages/${id}`);
         setPackageDetails(responce.data);
-        console.log(responce.data)
+
+        const itinararyResponse = await UserAxios.get(`api/user/itinararies/?package=${id}`)
+        setItinararies(itinararyResponse.data)
       } catch (error) {
         console.error('Error fetching package details:', error);
       }
@@ -100,7 +102,7 @@ const TourDetails = () => {
                   <span className="landonly" style={{ display: 'inline-block', fontSize: 'medium', marginLeft: '8px' }}>Land Only</span>
                   <div className="d-flex align-items-center gap-5">
                     <span className="d-flex align-items-center gap-1">
-                      <i className="ri-star-fill" style={{ color: 'var(--secondary-color)' }}></i>{rating}{" "}
+                      <i className="ri-star-fill" style={{ color: '#faa935' }}></i>{rating}{" "}
                     </span>
                     <span>
                       <i className="ri-map-pin-fill"></i>{city}

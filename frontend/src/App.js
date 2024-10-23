@@ -1,17 +1,52 @@
 import './App.css';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import UserWrapper from './wrapper/UserWrapper';
+import { UserAxios } from './axios_instances/Axios_instance';
+import {jwtDecode} from 'jwt-decode'
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [userInfo, setUserInfo] = useState({});
+
+  const verifyToken = async () => {
+    const access_key = localStorage.getItem('access_key');
+
+    try {
+      const response = await UserAxios.post('api/user/token/verify/', {
+        token: access_key
+      }, {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+
+      if (response.status === 200) {
+        setUserInfo({'access_token': access_key, 'username': jwtDecode(access_key).username });
+      } else {
+        setUserInfo({'access_token': null,'username': null});
+      }
+
+    } catch (error) {
+      console.error('Token verification failed:', error);
+      setUserInfo({'access_token': null,'username': null});
+    }
+
+  };
+
+  useEffect(() => {
+    verifyToken();
+  }, []);
+
   return (
     <>
-     <Router>
-      <Routes>
-        <Route path='*' element={<UserWrapper/>}/>
-      </Routes>
-     </Router>
+      <Router>
+        <Routes>
+          <Route path='*' element={<UserWrapper />} />
+        </Routes>
+      </Router>
     </>
   );
 }
 
 export default App;
+
