@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import TripsCSS from '../Trips/Trips.module.css'
 import trip01 from '../../assets/Trips01.jpg'
 import { UserAxios } from '../../axios_instances/Axios_instance'
+import { Link } from 'react-router-dom'
 
 
 
@@ -20,6 +21,7 @@ const Trips = () => {
     console.log(packages)
     fetchData()
   },[])
+
 
   return (
     <div className={`${TripsCSS.trips_wrapper} section`}>
@@ -48,7 +50,9 @@ const Trips = () => {
 
                 <div className={TripsCSS.pricing}>
                   <span className={TripsCSS.price}> ₹{pack.sale_price}</span>
-                  <button className={TripsCSS.book}>Book Now</button>
+                  <button className={TripsCSS.book}>
+                    <Link to={`/packages/${pack.id}`}>Book Now</Link>
+                  </button>
                 </div>
               </div>
             </div>

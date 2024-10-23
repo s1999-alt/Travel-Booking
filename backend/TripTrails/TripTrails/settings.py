@@ -28,13 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:5173",
-#     "http://127.0.0.1:5173",
-#     "https://find.siyadsavad.online",
-#     "https://master.d1flc43qrqfub1.amplifyapp.com",
-# ]
-
 
 # Application definition
 

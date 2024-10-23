@@ -2,7 +2,7 @@ from rest_framework import serializers
 from .models import Packages, Category, PackageImages, Inclusions, Exclusions, Continent, Hotels
 
 
-class CategorySerializer(serializers.Serializer):
+class CategorySerializer(serializers.ModelSerializer):
   class Meta:
     model = Category
     fields = '__all__'
@@ -15,13 +15,13 @@ class CategorySerializer(serializers.Serializer):
     return value
 
 
-class PackageImageSerializer(serializers.Serializer):
+class PackageImageSerializer(serializers.ModelSerializer):
   class Meta:
     model = PackageImages
     fields = ["id", "package", "image"] 
 
 
-class InclusionsSerializer(serializers.Serializer):
+class InclusionsSerializer(serializers.ModelSerializer):
   class Meta:
     model = Inclusions
     fields = '__all__'
@@ -33,13 +33,13 @@ class ExclusionsSerializer(serializers.ModelSerializer):
     fields = '__all__'
 
 
-class ContinentSerializer(serializers.Serializer):
+class ContinentSerializer(serializers.ModelSerializer):
   class Meta:
     model = Continent
     fields = ['continent_name']
 
 
-class AdminHotelSerializer(serializers.Serializer):
+class AdminHotelSerializer(serializers.ModelSerializer):
   class Meta:
     model = Hotels
     fields = '__all__'
@@ -55,7 +55,7 @@ class PackageSerializer(serializers.ModelSerializer):
 
   class Meta:
     model = Packages
-    fields = '__all__'
+    fields = ["id", "package_name", "duration", "price", "sale_price", "overview", "category", "continent", "image", "images", "city", "country", "rating", "inclusions", "exclusions", "hotels", "is_active"]
   
   def validate_image(self, value):
     allowed_content_types = ['image/jpeg', 'image/png', 'image/gif']
@@ -67,4 +67,5 @@ class PackageSerializer(serializers.ModelSerializer):
   def create(self, validated_data):
     package = Packages.objects.create(**validated_data)
     return package
+
   

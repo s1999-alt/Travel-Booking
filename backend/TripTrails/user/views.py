@@ -11,6 +11,9 @@ class PackageListView(generics.ListCreateAPIView):
     return Packages.objects.filter(category__is_available = True)
   
 
+class packageDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Packages.objects.all()
+    serializer_class = PackageSerializer
 
 
 
