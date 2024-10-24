@@ -1,0 +1,378 @@
+.hotel_wrap {
+  width: 100%;
+  margin-top: 100px;
+}
+
+.hotel_inr_wrap {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 5px 15px;
+}
+
+.breadcrum {
+  width: 100%;
+  float: left;
+  margin-top: 10px;
+}
+
+.breadcrum ul li {
+  display: inline;
+  font-size: 13px;
+  margin-right: 1%;
+  float: left;
+  line-height: 30px;
+}
+
+.ac {
+  color: #055c9b;
+  font-weight: bold;
+}
+
+.arr {
+  width: 16px;
+  height: 30px;
+  background: url() no-repeat;
+  display: block;
+  background-size: 8px 15px;
+  margin-top: 8px;
+}
+
+.left-col-htl {
+  width: 70%;
+  float: left;
+}
+
+.hotelRvw_box {
+  width: 100%;
+  position: relative;
+  float: left;
+  background: #fff;
+  -webkit-box-shadow: 0 2px 4px 0 #c8c8c8;
+  -moz-box-shadow: 0 2px 4px 0 #c8c8c8;
+  box-shadow: 0 2px 4px 0 #c8c8c8;
+  border-radius: 4px;
+  padding: 0;
+  border: 1px solid #cdcdcd;
+}
+
+.rvwpanel {
+  width: 100%;
+  float: left;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.hotelrvw-img {
+  width: 26%;
+  float: left;
+  margin-right: 30px;
+}
+
+.hotelrvw-img img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.hotelrvw-info {
+  width: 70%;
+  float: left;
+}
+
+.ck-cat {
+  font-size: 10px;
+  color: #333;
+  float: left;
+  padding: 0;
+  width: 100%;
+  margin: auto;
+}
+
+.hotelrvw-info h4 {
+  margin: 0;
+  text-transform: capitalize;
+  font-size: 24px;
+  color: #000;
+  font-weight: 600;
+  float: left;
+}
+
+.clr {
+  clear: both;
+}
+
+.hotelrvw-locatn {
+  width: 100%;
+  font-size: 13px;
+  color: #8c8a8a;
+  margin: 4px 0;
+  float: left;
+}
+
+.hotelrvw-locatn span {
+  vertical-align: middle;
+}
+
+.hotelrvw-locatn svg {
+  vertical-align: top;
+  width: 16px;
+  height: 18px;
+  fill: #8c8a8a;
+  enable-background: new 0 0 97.16 97.16;
+  margin-right: 7px;
+}
+
+.wxidth {
+  width: auto;
+  float: left;
+  margin-right: 15px;
+  vertical-align: middle;
+}
+
+.trav-ami {
+  float: left;
+  width: 100%;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.trav-ami ul {
+  display: inline;
+}
+
+ul:not(.browser-default) {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.trav-ami ul li {
+  color: #333;
+  display: block;
+  position: relative;
+  float: left;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  border-radius: 2px;
+  margin-right: 10px;
+}
+
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+.trav-ami ul li img {
+  margin: 0 auto;
+  display: inline;
+  margin-right: 8px;
+  width: 20px;
+  margin-bottom: 1px;
+}
+
+.higt_sec {
+  width: 100%;
+  background-color: #edf3fb;
+  float: left;
+  display: block;
+}
+
+.car-item {
+  width: 96%;
+  margin: 0 auto;
+  display: table;
+}
+
+.higt-sc2 {
+  font-size: 13px;
+  margin-top: 1%;
+  font-weight: 600;
+}
+
+.higt_sec ul {
+  margin: 0px 0px;
+  padding: 10px 2%;
+  float: left;
+  width: 100%;
+}
+
+.higt_sec ul li {
+  padding: 5px 5px 0 0px;
+  font-size: 12px;
+  float: left;
+  width: auto;
+  list-style-type: circle;
+  font-weight: 500;
+  margin-right: 3%;
+}
+
+
+.cancl-sec {
+  width: 100%;
+  border-top: 1px dashed #a7a4a4;
+  margin: 1% 0 1% 0;
+  font-size: 15px;
+  padding: 1% 0;
+  float: left;
+}
+
+.higt-sc2 {
+  font-size: 13px;
+  margin-top: 1%;
+  font-weight: 600;
+}
+
+
+
+/* Add this to your existing CSS styles */
+.rate-info-box {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  float: right;
+  margin-top: 150px;
+  box-shadow: 0 2px 4px 0 #c8c8c8;
+  border-radius: 4px;
+  border: 1px solid #cdcdcd;
+}
+
+.rate-info-heading {
+  background: linear-gradient(90deg, #c7dffe, #d8f2ff);
+  padding: 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.rate-info-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.rate-info-section p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.rate-info-section p span {
+  font-weight: bold;
+}
+
+.rate-info-grandtotal {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.rate-info-grandtotal p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #cf5050;
+}
+
+.rate-info-grandtotal p span {
+  font-weight: bold;
+}
+
+
+
+.rate-info-box-2 {
+  /* display: flex;
+  flex-direction: column; */
+  width: 70%;
+  float: right;
+  margin-top: 50px;
+  box-shadow: 0 2px 4px 0 #c8c8c8;
+  border-radius: 4px;
+  border: 1px solid #cdcdcd;
+}
+
+.rate-info-heading-2 {
+  background: linear-gradient(90deg, #c7dffe, #d8f2ff);
+  padding: 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.rate-info-section-2 {
+  /* display: flex;
+  justify-content: space-between; */
+  padding: 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.rate-info-section-2 p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.rate-info-section-2 p span {
+  font-weight: bold;
+}
+
+.rate-info-grandtotal-2 {
+  /* display: flex;
+  justify-content: space-between; */
+  padding-top: 15px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.rate-info-grandtotal-2 p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #cf5050;
+}
+
+.rate-info-grandtotal-2 p span {
+  font-weight: bold;
+}
+
+.contn-pay-rt {
+  width: 100%;
+  float: left;
+  margin-top: 17px;
+}
+
+.contn-pay-rt button {
+  width: 70%;
+  float: right;
+  text-align: center;
+  color: #ffffff;
+  font-size: 15px;
+  background: #ef6614;
+  height: 45px;
+  border-radius: 40px;
+  cursor: pointer;
+  border: 1px solid #ef6614;
+  outline: 0;
+}
+
+.contn-pay-rt-main {
+  width: 100%;
+  float: left;
+  margin-top: 17px;
+  margin-left: 3rem;
+}
+
+.contn-pay-rt-main button {
+  width: 100%;
+  float: left;
+  text-align: center;
+  color: #ffffff;
+  font-size: 15px;
+  background: #ef6614;
+  height: 45px;
+  border-radius: 40px;
+  cursor: pointer;
+  border: 1px solid #ef6614;
+  outline: 0;
+}
+
+.wallet-checkbox {
+  display: inline-flex;
+  align-items: center;
+}

@@ -1,5 +1,13 @@
 from rest_framework import serializers
-from .models import Packages, Category, PackageImages, Inclusions, Exclusions, Continent, Hotels, Itinarary
+from .models import Packages, Category, PackageImages, Inclusions, Exclusions, Continent, Hotels, Itinarary, Booking
+from django.contrib.auth.models import User
+
+
+class UserDetailsSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = User
+    fields = '__all__' 
+
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -74,4 +82,13 @@ class ItinararySerializer(serializers.ModelSerializer):
     model = Itinarary
     fields = '__all__'
 
-  
+
+
+class BookingSerializer(serializers.ModelSerializer):
+  package_details = PackageSerializer(source='package', read_only=True)
+  user_details = UserDetailsSerializer(source='user' , read_only=True)
+
+  class Meta:
+    model = Booking
+    fields = ['id','user','package','full_name','phone','email','start_date','end_date','no_of_guest','total','status','payment_method','booking_number','booking_status','wallet_paid','package_details','user_details']
+    

@@ -7,6 +7,7 @@ import LoginPage from '../pages/login/LoginPage'
 import Home from '../pages/Home/Home'
 import TourDetails from '../pages/TourDetails/TourDetails'
 import LogoutPage from '../pages/logout/LogoutPage'
+import BookingConfirm from '../pages/BookingConfirm/BookingConfirm'
 
 const UserWrapper = () => {
   const routes = useRoutes([
@@ -27,8 +28,8 @@ const UserWrapper = () => {
         {path: "/login/", element: <LoginPage/>},
         {path: "/logout/", element: <LogoutPage/>},
         {path: "/packages/:id", element: <TourDetails/>},
+        {path: "/bookingconfirm/:bookingId", element:<BookingConfirm/>},
       ]
-
     }
   ])
 

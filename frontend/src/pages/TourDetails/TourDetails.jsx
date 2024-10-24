@@ -11,6 +11,7 @@ import { HiOutlineArrowRight } from "react-icons/hi";
 import { HiOutlineArrowLeft} from "react-icons/hi";
 import { UserAxios } from '../../axios_instances/Axios_instance';
 import UserContext from '../../context/UserContext';
+import Booking from '../Booking/Booking';
 
 
 const TourDetails = () => {
@@ -219,7 +220,7 @@ const TourDetails = () => {
             </Col>
 
             <Col lg="4">
-              {/* <Booking packageDetails={packageDetails}/> */}
+              <Booking packageDetails={packageDetails}/>
             </Col>
           </Row>
         </Container>

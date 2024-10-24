@@ -1,4 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
+from datetime import timedelta
+import uuid
 
 
 class Category(models.Model):
@@ -90,3 +93,61 @@ class Itinarary(models.Model):
 
   def __str__(self):
     return f"{self.package.package_name} - Day{self.day_number}"
+  
+
+
+class Booking(models.Model):
+  PAYMENT_STATUS_CHOICES = [
+    ('Pending Payment', 'Pending Payment'),
+    ('Payment Complete', 'Payment Complete'),
+    ('Returned', 'Returned')  
+  ]
+
+  PAYMENT_METHOD_CHOICES = [
+    ('Stripe', 'Stripe'),
+    ('Wallet','Wallet'),
+    ('Not-paid','Not-paid')
+  ]
+
+  BOOKING_STATUS_CHOICES = [
+    ('Upcoming' , 'Upcoming'),
+    ('Ongoing' , 'Ongoing'),
+    ('Completed' , 'Completed'),
+    ('Cancelled' , 'Cancelled'),
+    ('Cancelled by FindMe' , 'Cancelled by FindMe'),
+  ]
+
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
+  package = models.ForeignKey(Packages, on_delete=models.CASCADE)
+  full_name = models.CharField(max_length=50)
+  phone = models.CharField(max_length=15)
+  email = models.EmailField(max_length=254)
+  start_date = models.DateField()
+  end_date = models.DateField(null=True)
+  no_of_guest = models.PositiveIntegerField()
+  total = models.DecimalField(max_digits=10, decimal_places=2)
+  status = models.CharField(max_length=50, choices=PAYMENT_STATUS_CHOICES , default='Pending Payment')
+  payment_method = models.CharField(max_length=20, choices=PAYMENT_METHOD_CHOICES, default='Not-paid')
+  booking_number = models.CharField(max_length=20, unique=True, blank=True, null=True)
+  booking_status = models.CharField(max_length=20, choices=BOOKING_STATUS_CHOICES, default='Upcoming')
+  wallet_paid = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+
+  def __str__(self):
+    return f"{self.full_name} - {self.package.package_name}"
+  
+  def save(self, *args, **kwargs):
+    if not self.booking_number:
+      self.booking_number = self.generate_booking_number()
+    package_duration = int(self.package.duration)
+    end_date = self.start_date + timedelta(days=package_duration)
+    self.end_date = end_date
+    super().save(*args, **kwargs)
+
+  def generate_booking_number(self):
+    unique_id = uuid.uuid4().hex[:6].upper()
+    return f'BOOK-{unique_id}'
+
+
+
+
+
