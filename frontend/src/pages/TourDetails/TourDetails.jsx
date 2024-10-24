@@ -1,22 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css";
 import { Container, Row, Col} from 'reactstrap'
 import  './TourDetails.css'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import threestar from '../../assets/3-star.gif'
 import { HiOutlineArrowRight } from "react-icons/hi";
 import { HiOutlineArrowLeft} from "react-icons/hi";
 import { UserAxios } from '../../axios_instances/Axios_instance';
-
+import UserContext from '../../context/UserContext';
 
 
 const TourDetails = () => {
   const { id } = useParams();
   const [packageDetails, setPackageDetails] = useState(null);
   const [itinararies, setItinararies] = useState([]);
+  const {userInfo, updateUserInfo} = useContext(UserContext)
+  const navigate = useNavigate()
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,7 +33,11 @@ const TourDetails = () => {
         console.error('Error fetching package details:', error);
       }
     };
-    fetchData();
+    if (userInfo.access_token){
+      fetchData();
+    } else{
+      navigate('/login/')
+    }
   }, [id]);
 
   if (!packageDetails) {

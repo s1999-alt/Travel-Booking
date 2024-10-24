@@ -1,8 +1,10 @@
-import React, { useRef } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import React, { useContext, useRef } from 'react'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import navCSS from './../Nav/Nav.module.css'
+import UserContext from '../../context/UserContext'
 
 const Nav = () => {
+  const {userInfo, updateUserInfo} = useContext(UserContext)
   
   const navigate = useNavigate()
   const menu = useRef()
@@ -31,11 +33,15 @@ const Nav = () => {
           <input type="text" placeholder='Search Places'/>
         </div>
         
-        <div className={navCSS.auth_wrapper}>
-          <NavLink to="/login/" className={navCSS.auth_link}>Login</NavLink>
-          <span>|</span>
-          <NavLink to="/register/" className={navCSS.auth_link}>Register</NavLink>
-        </div>
+        {userInfo.username ? (
+          <>Hello {userInfo?.username} ! <Link to='/logout/'>Logout</Link></>
+        ):(
+          <div className={navCSS.auth_wrapper}>
+            <NavLink to="/login/" className={navCSS.auth_link}>Login</NavLink>
+            <span>|</span>
+            <NavLink to="/register/" className={navCSS.auth_link}>Register</NavLink>
+          </div>
+        )}
         
         <i className='ri-menu-2-line' onClick={MenuHandler} id={navCSS.bars}></i>
       </div>

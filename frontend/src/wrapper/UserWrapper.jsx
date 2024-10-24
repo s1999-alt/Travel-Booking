@@ -6,6 +6,7 @@ import RegisterPage from '../pages/register/RegisterPage'
 import LoginPage from '../pages/login/LoginPage'
 import Home from '../pages/Home/Home'
 import TourDetails from '../pages/TourDetails/TourDetails'
+import LogoutPage from '../pages/logout/LogoutPage'
 
 const UserWrapper = () => {
   const routes = useRoutes([
@@ -24,6 +25,7 @@ const UserWrapper = () => {
         {path: "/", element: <Home/>},
         {path: "/register/", element: <RegisterPage/>},
         {path: "/login/", element: <LoginPage/>},
+        {path: "/logout/", element: <LogoutPage/>},
         {path: "/packages/:id", element: <TourDetails/>},
       ]
 
