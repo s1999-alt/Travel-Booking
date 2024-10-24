@@ -40,6 +40,7 @@ const TourDetails = () => {
     };
     if (userInfo.access_token){
       fetchData();
+      console.log("---------------------------------",userInfo.user_id)
     } else{
       navigate('/login/')
     }

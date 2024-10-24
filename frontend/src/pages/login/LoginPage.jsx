@@ -27,7 +27,7 @@ function LoginPage() {
     if (responce.status === 200) {
       const data = await responce.data
       localStorage.setItem('access_key', data.access)
-      navigate('/')
+      navigate('/',{ replace: true })
       window.location.reload()
     }else{
       console.error('Login failed')

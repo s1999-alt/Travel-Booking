@@ -22,14 +22,15 @@ function App() {
       });
 
       if (response.status === 200) {
-        setUserInfo({'access_token': access_key, 'username': jwtDecode(access_key).username });
+        const decodedToken = jwtDecode(access_key);
+        setUserInfo({'access_token': access_key, 'username': decodedToken.username, 'user_id':decodedToken.user_id});
       } else {
-        setUserInfo({'access_token': null,'username': null});
+        setUserInfo({'access_token': null,'username': null,'user_id': null});
       }
 
     } catch (error) {
       console.error('Token verification failed:', error);
-      setUserInfo({'access_token': null,'username': null});
+      setUserInfo({'access_token': null,'username': null,'user_id': null});
     }
 
   };
