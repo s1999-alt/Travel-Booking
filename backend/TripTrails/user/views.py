@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework import generics
 from admin_side.models import Packages, Itinarary
 from admin_side.serializers import PackageSerializer, ItinararySerializer
+from rest_framework.permissions import IsAuthenticated, AllowAny
 
 class PackageListView(generics.ListCreateAPIView):
   queryset = Packages.objects.all()
@@ -14,6 +15,7 @@ class PackageListView(generics.ListCreateAPIView):
 class packageDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Packages.objects.all()
     serializer_class = PackageSerializer
+    permission_classes = [IsAuthenticated]
 
 
 class ItineraryListView(generics.ListCreateAPIView):

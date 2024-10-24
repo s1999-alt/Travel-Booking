@@ -24,7 +24,12 @@ const TourDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const responce = await UserAxios.get(`api/user/packages/${id}`);
+        const responce = await UserAxios.get(`api/user/packages/${id}`,{
+          headers:{
+            'Authorization': `Bearer ${userInfo.access_token}`,
+            "Content-Type": 'application/json'
+          }
+        });
         setPackageDetails(responce.data);
 
         const itinararyResponse = await UserAxios.get(`api/user/itinararies/?package=${id}`)
