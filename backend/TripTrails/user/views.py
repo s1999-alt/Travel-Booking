@@ -123,7 +123,6 @@ class StripeCheckoutView(APIView):
     try:
       user_id = request.data.get('user_id')
       booking_id = request.data.get('booking_id')
-      print("--------------------------------------------------")
       booking = Booking.objects.get(id=booking_id)
       package = booking.package
       image_url = request.build_absolute_uri(package.image.url)
@@ -155,7 +154,7 @@ class StripeCheckoutView(APIView):
               amount=amount,
               transaction_type=transaction_type
             )
-          return redirect('http://localhost:5173/success?success=true') 
+          return redirect('http://localhost:3000/success?success=true') 
         
         else:
           amount_used_from_wallet = wallet.balance
@@ -256,7 +255,7 @@ class StripeSuccessView(APIView):
                 booking.payment_method = 'Stripe'
                 booking.save()    
 
-            return redirect('http://localhost:5173/success?success=true') 
+            return redirect('http://localhost:3000/success?success=true') 
 
         except stripe.error.StripeError as e:
             return Response(

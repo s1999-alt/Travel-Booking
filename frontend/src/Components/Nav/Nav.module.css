@@ -106,6 +106,24 @@
   color: rgb(231, 76, 60);
 }
 
+.account_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.account_link {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e1e1e;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.account_link:hover {
+  color: rgb(231, 76, 60);
+}
+
 
 #bars{
   padding: 7px;

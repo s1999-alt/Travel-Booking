@@ -2,6 +2,7 @@ import React, { useContext, useRef } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import navCSS from './../Nav/Nav.module.css'
 import UserContext from '../../context/UserContext'
+import { RiUser3Line } from 'react-icons/ri'
 
 const Nav = () => {
   const {userInfo, updateUserInfo} = useContext(UserContext)
@@ -34,7 +35,11 @@ const Nav = () => {
         </div>
         
         {userInfo.username ? (
-          <>Hello {userInfo?.username} ! <Link to='/logout/'>Logout</Link></>
+          <div className={navCSS.account_wrapper}>
+            {/* Hii {userInfo.username}! */}
+            <Link to='/account' className={navCSS.account_link}><RiUser3Line size={23} /></Link>
+            <Link to='/logout/'>Logout</Link>
+          </div>
         ):(
           <div className={navCSS.auth_wrapper}>
             <NavLink to="/login/" className={navCSS.auth_link}>Login</NavLink>
