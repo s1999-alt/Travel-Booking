@@ -43,7 +43,7 @@ const Trips = () => {
                 <h5>{pack.package_name}</h5>
 
                 <div className={TripsCSS.TripDetails}>
-                  <span><i className='ri-calendar-line'></i>{pack.duration}</span>
+                  <span><i className='ri-calendar-line'></i>{pack.duration} nights</span>
                   <span><i className='ri-map-pin-line'></i> 5 places</span>
                   <span><i className='ri-flag-line'></i>{pack.country}</span>
                 </div>

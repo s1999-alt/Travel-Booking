@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Packages, Category, PackageImages, Inclusions, Exclusions, Continent, Hotels, Itinarary, Booking
+from .models import Packages, Category, PackageImages, Inclusions, Exclusions, Continent, Hotels, Itinarary, Booking, Wallet, WalletTransaction
 from django.contrib.auth.models import User
 
 
@@ -91,4 +91,19 @@ class BookingSerializer(serializers.ModelSerializer):
   class Meta:
     model = Booking
     fields = ['id','user','package','full_name','phone','email','start_date','end_date','no_of_guest','total','status','payment_method','booking_number','booking_status','wallet_paid','package_details','user_details']
+
+
+
+
+class WalletSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Wallet
+    fields = ['user','balance']
+
+
+class WalletTransactionSerializer(serializers.ModelSerializer):
+    class Meta:
+      model = WalletTransaction
+      fields = '__all__'
+
     

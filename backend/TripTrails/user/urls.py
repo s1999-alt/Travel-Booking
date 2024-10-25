@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import PackageListView, packageDetailView, ItineraryListView, RegisterUser, BookingDetailView, BookingListView,BookingDataView
+from .views import PackageListView, packageDetailView, ItineraryListView, RegisterUser, BookingDetailView, BookingListView,BookingDataView, WalletView, WalletTransactionsView, StripeCheckoutView, StripeSuccessView 
 
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -21,6 +21,13 @@ urlpatterns = [
     path('bookings/', BookingListView.as_view(), name='booking-list'),
     path('bookings/<int:pk>/', BookingDetailView.as_view(), name='booking-detail'),
     path('bookings/<int:user_id>/', BookingDataView.as_view(), name='booking-list'),
+
+    path('create-checkout-session/',StripeCheckoutView.as_view(), name='create-checkout-session'),
+    path('stripe-success/', StripeSuccessView.as_view(), name='stripe-success'),
+
+
+    path('wallet/<int:user>/', WalletView.as_view(), name='wallet'),
+    path('wallet/<int:id>/transactions/', WalletTransactionsView.as_view(), name='wallet-transactions'), 
 
 
 

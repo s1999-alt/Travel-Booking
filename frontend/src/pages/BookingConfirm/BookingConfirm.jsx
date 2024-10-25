@@ -44,7 +44,7 @@ const BookingConfirm = () => {
 
           if(userInfo && userInfo.user_id) {
             console.log(userInfo.user_id);
-            const response = await UserAxios.get(`api/v1/user/wallet/${userInfo.user_id}/`)
+            const response = await UserAxios.get(`api/user/wallet/${userInfo.user_id}/`)
             console.log(response);
             setWalletAmount(response.data.balance);
           }
@@ -192,9 +192,9 @@ const BookingConfirm = () => {
                     </div>
                   </div>
                   <div className="contn-pay-rt-main">
-                    <form action='http://localhost:8000/api/v1/admin/create-checkout-session/' method='POST'>
+                    <form action='http://localhost:8000/api/user/create-checkout-session/' method='POST'>
                       <input type="hidden" name="booking_id" value={bookingId} />
-                      <input type="hidden" name="user_id" value={userInfo.id} />
+                      <input type="hidden" name="user_id" value={userInfo.user_id} />
                       <h2>Wallet Amount: ₹{walletAmount}</h2>
                       <label className='wallet-checkbox'>
                           <input type="checkbox" name="use_wallet" checked={useWallet} onChange={(e) => setUseWallet(e.target.checked)} />
