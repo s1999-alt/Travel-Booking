@@ -52,7 +52,7 @@ class BookingListView(generics.ListCreateAPIView):
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
 
-
+# view for the detailed information of bookings when click the show
 class BookingDetailView(generics.RetrieveUpdateDestroyAPIView):
    queryset = Booking.objects.all()
    serializer_class = BookingSerializer
@@ -112,7 +112,7 @@ class WalletTransactionsView(generics.ListAPIView):
     serializer_class = WalletTransactionSerializer
 
     def get_queryset(self):
-        user_id = self.kwargs['id']
+        user_id = self.kwargs['user_id']
         return WalletTransaction.objects.filter(user=user_id)
     
 

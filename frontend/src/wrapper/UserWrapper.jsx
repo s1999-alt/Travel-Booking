@@ -9,6 +9,10 @@ import TourDetails from '../pages/TourDetails/TourDetails'
 import LogoutPage from '../pages/logout/LogoutPage'
 import BookingConfirm from '../pages/BookingConfirm/BookingConfirm'
 import SuccessPage from '../pages/BookingSuccess/SuccessPage'
+import UserAccount from '../pages/UserAccount/UserAccount'
+import Dashboard from '../pages/UserAccount/Dashboard'
+import BookingTable from '../pages/UserAccount/BookingTable'
+import BookingDetailPage from '../pages/UserAccount/BookingDetailPage'
 
 const UserWrapper = () => {
   const routes = useRoutes([
@@ -31,8 +35,27 @@ const UserWrapper = () => {
         {path: "/packages/:id", element: <TourDetails/>},
         {path: "/bookingconfirm/:bookingId", element:<BookingConfirm/>},
         {path: "/success", element: <SuccessPage/>}
-      ]
-    }
+      ],
+    },
+
+    {
+      element:(
+        <>
+         <Nav/>
+         <UserAccount>
+
+          <Outlet/>
+
+         </UserAccount>
+         <Footer/>
+        </>
+      ),
+      children:[
+        {path: "/userAccount/", element: <Dashboard/>},
+        {path: "/userAccount/bookings", element: <BookingTable/>},
+        {path: "/userAccount/bookings/:id", element: <BookingDetailPage/>},
+      ],
+    },
   ])
 
   return routes

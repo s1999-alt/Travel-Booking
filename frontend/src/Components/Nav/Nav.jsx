@@ -36,8 +36,8 @@ const Nav = () => {
         
         {userInfo.username ? (
           <div className={navCSS.account_wrapper}>
-            {/* Hii {userInfo.username}! */}
-            <Link to='/account' className={navCSS.account_link}><RiUser3Line size={23} /></Link>
+            Hii {userInfo.username}!
+            <Link to='/userAccount/' className={navCSS.account_link}><RiUser3Line size={23} /></Link>
             <Link to='/logout/'>Logout</Link>
           </div>
         ):(

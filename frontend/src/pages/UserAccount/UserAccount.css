@@ -1,0 +1,46 @@
+.user-account-container {
+  display: flex;
+  margin: 5rem;
+  margin-top: 140px;
+}
+
+.navbar {
+  width: 200px;
+  background: linear-gradient(90deg, #C9D6FF, #E2E2E2);
+  height: 25rem;
+}
+
+.navbar-header {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.navbar-links {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navbar-links li {
+  padding: 15px;
+}
+
+.navbar-links li a {
+  display: flex;
+  align-items: center;
+  color: #333;
+  text-decoration: none;
+}
+
+.navbar-links li a:hover,
+.navbar-links li a.active {
+  color: #007bff;
+}
+
+.nav-icon {
+  margin-right: 5px;
+}
+
+.content {
+  flex: 1;
+  padding-left: 3rem;
+}
