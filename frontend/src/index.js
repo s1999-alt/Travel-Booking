@@ -6,7 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle'
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import Modal from 'react-modal';
 
+
+Modal.setAppElement('#root'); 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

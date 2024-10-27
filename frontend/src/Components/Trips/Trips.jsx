@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import TripsCSS from '../Trips/Trips.module.css'
-import trip01 from '../../assets/Trips01.jpg'
 import { UserAxios } from '../../axios_instances/Axios_instance'
 import { Link } from 'react-router-dom'
 
@@ -30,7 +29,7 @@ const Trips = () => {
         {packages.length > 0 ? (
           packages.map((pack) => (
             <div className={TripsCSS.card} key={pack.id}>
-              <img src={trip01} alt="" />
+              <img src={pack.image} alt="" />
               <div className={TripsCSS.TripContent}>
                 <div className={TripsCSS.rating}>
                   <i className='ri-star-fill'></i>

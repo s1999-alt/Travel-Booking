@@ -13,6 +13,7 @@ import UserAccount from '../pages/UserAccount/UserAccount'
 import Dashboard from '../pages/UserAccount/Dashboard'
 import BookingTable from '../pages/UserAccount/BookingTable'
 import BookingDetailPage from '../pages/UserAccount/BookingDetailPage'
+import Wallet from '../pages/UserAccount/Wallet'
 
 const UserWrapper = () => {
   const routes = useRoutes([
@@ -54,6 +55,7 @@ const UserWrapper = () => {
         {path: "/userAccount/", element: <Dashboard/>},
         {path: "/userAccount/bookings", element: <BookingTable/>},
         {path: "/userAccount/bookings/:id", element: <BookingDetailPage/>},
+        {path: "/userAccount/wallet/:id", element: <Wallet/>},
       ],
     },
   ])
