@@ -5,6 +5,7 @@ import { UserAxios } from './axios_instances/Axios_instance';
 import {jwtDecode} from 'jwt-decode'
 import { useEffect, useState } from 'react';
 import UserContext from './context/UserContext';
+import AdminWrapper from './wrapper/AdminWrapper';
 
 function App() {
   const [userInfo, setUserInfo] = useState({});
@@ -49,6 +50,7 @@ function App() {
         <UserContext.Provider value={{userInfo, updateUserInfo}}>
           <Routes>
             <Route path='*' element={<UserWrapper/>} />
+            <Route path='/admin/*' element={<AdminWrapper/>} />
           </Routes>
         </UserContext.Provider>
       </Router>

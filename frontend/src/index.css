@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
 
+
 *{
   margin: 0;
   padding: 0;
@@ -9,6 +10,7 @@
   font-family: 'archivo';
   scroll-behavior: smooth;
 }
+
 
 .App{
   background-color: #fff;
@@ -26,10 +28,11 @@
   padding: 60px 8%;
 }
 
-/* src/index.css or src/App.css */
+
+/* src/index.css or src/App.css
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 
 

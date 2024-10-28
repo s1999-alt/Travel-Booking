@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^6.1.5",
+    "@mui/material": "^6.1.5",
     "@tailwindcss/forms": "^0.5.9",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -27,6 +31,7 @@
     "react-spring": "^9.7.4",
     "react-toastify": "^10.0.6",
     "reactstrap": "^9.2.3",
+    "sass": "^1.80.4",
     "slick-carousel": "^1.8.1",
     "swiper": "^11.1.14",
     "web-vitals": "^2.1.4"
