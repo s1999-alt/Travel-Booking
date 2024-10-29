@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { AdminAxios } from '../../../axios_instances/Axios_instance'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './package-list.css'
 
 const PackageList = () => {
   const [packages, setPackages] = useState([])
-  const navigate = useNavigate()
 
   useEffect(()=>{
     const fetchPackages = async ()=>{
@@ -45,12 +44,13 @@ const PackageList = () => {
   return (
     <div className='package-list-container'>
       <h2 className="package-list-heading">Package List</h2>
-      {/* <Link to="/admin/AddPackages">
+      <Link to="/admin/add-package/">
           <button className="add-packages-button">Add Package</button> 
-      </Link> */}
+      </Link>
       <table className="package-list-table">
         <thead>
           <tr>
+            <th>id</th>
             <th>Package Name</th>
             <th>Image</th>
             <th>Duration</th>
@@ -64,6 +64,7 @@ const PackageList = () => {
         <tbody>
           {packages.map((pack) => (
             <tr key={pack.id}>
+              <td>{pack.id}</td>
               <td>{pack.package_name}</td>
               <td><img src={pack.image} alt={pack.package_name} /></td>
               <td>{pack.duration}</td>

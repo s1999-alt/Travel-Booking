@@ -51,7 +51,7 @@ class ExclusionsSerializer(serializers.ModelSerializer):
 class ContinentSerializer(serializers.ModelSerializer):
   class Meta:
     model = Continent
-    fields = ['continent_name']
+    fields = '__all__'
 
 
 class AdminHotelSerializer(serializers.ModelSerializer):
@@ -66,7 +66,6 @@ class PackageSerializer(serializers.ModelSerializer):
   inclusions = InclusionsSerializer(many=True, read_only=True)
   exclusions = ExclusionsSerializer(many=True, read_only=True) 
   hotels = AdminHotelSerializer(many=True, read_only=True)
-  continent = ContinentSerializer(read_only=True)
 
   class Meta:
     model = Packages

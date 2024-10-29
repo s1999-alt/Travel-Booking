@@ -1,0 +1,66 @@
+.addpackage-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.heading {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: monospace;
+}
+
+.form {
+  display: grid;
+  gap: 15px;
+}
+
+.label {
+  font-size: 16px
+}
+
+.input,
+.textarea,
+.select,
+.button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.input[type="file"] {
+  padding: 8px;
+  font-size: 14px;
+}
+
+.button {
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+.radio-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.input,
+.textarea,
+.select,
+.input[type="file"],
+.button {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.checkbox-wrapper {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px; 
+}
