@@ -3,6 +3,13 @@ from .models import Packages, Category, PackageImages, Inclusions, Exclusions, C
 from django.contrib.auth.models import User
 
 
+class UserListSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = User
+    fields = ['id', 'username', 'email', 'is_active']
+
+
+
 class UserDetailsSerializer(serializers.ModelSerializer):
   class Meta:
     model = User

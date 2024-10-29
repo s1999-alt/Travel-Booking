@@ -10,9 +10,7 @@ import Table from '../../Components/table/Table'
 const AdminHome = () => {
   return (
     <div className='admin-home' style={{color: 'black'}}>
-      <SideBar/>
       <div className="homeContainer">
-        <NavBar/>
         <div className="widgets">
           <Widget type="user"/>
           <Widget type="order"/>
