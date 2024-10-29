@@ -82,6 +82,13 @@ class PackageSerializer(serializers.ModelSerializer):
   def create(self, validated_data):
     package = Packages.objects.create(**validated_data)
     return package
+
+
+class AdminPackageListSerializer(PackageSerializer):
+  category_name = serializers.CharField(source='category.category_name', read_only=True)
+  class Meta:
+    model = Packages
+    fields = ["id", "package_name", "duration", "price", "sale_price", "overview", "category","category_name", "continent", "image", "images", "city", "country", "rating", "inclusions", "exclusions", "hotels", "is_active"] 
   
 
 class ItinararySerializer(serializers.ModelSerializer):

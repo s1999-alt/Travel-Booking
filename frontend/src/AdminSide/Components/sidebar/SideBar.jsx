@@ -21,7 +21,7 @@ const SideBar = () => {
     <div className="sidebar">
       <div className="top">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <span className="logo">lamadmin</span>
+          <span className="logo">TripTrails Admin</span>
         </Link>
       </div>
       <hr />
@@ -39,10 +39,10 @@ const SideBar = () => {
               <span>Users</span>
             </li>
           </Link>
-          <Link to="/products" style={{ textDecoration: "none" }}>
+          <Link to="package-list/" style={{ textDecoration: "none" }}>
             <li>
               <StoreIcon className="icon" />
-              <span>Products</span>
+              <span>Packages</span>
             </li>
           </Link>
           <li>

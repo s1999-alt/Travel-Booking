@@ -5,6 +5,7 @@ import NavBar from '../AdminSide/Components/navbar/NavBar';
 import AdminHome from '../AdminSide/Pages/AdminHome/AdminHome'
 import './admin-layout.scss';
 import AdminList from '../AdminSide/Pages/List/AdminList';
+import PackageList from '../AdminSide/Pages/Packages/PackageList';
 
 const AdminWrapper = () => {
   const routes = useRoutes([
@@ -21,6 +22,7 @@ const AdminWrapper = () => {
       children: [
         { path: 'adminhome/', element: <AdminHome/> },
         { path: 'admin-listuser/', element: <AdminList/> },
+        { path: 'package-list/', element: <PackageList/> },
       ],
     },
   ]);

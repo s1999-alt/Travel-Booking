@@ -45,7 +45,7 @@ class Continent(models.Model):
   def __str__(self):
     return self.continent_name
 
-
+#not implemented, just create model for the future destination part implemetation
 class Destination(models.Model):
   destination_name = models.CharField(max_length=50)
   country = models.CharField(max_length=50)
