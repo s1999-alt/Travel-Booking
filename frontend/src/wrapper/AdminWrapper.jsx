@@ -10,6 +10,7 @@ import AddPackageForm from '../AdminSide/Pages/Packages/AddPackageForm';
 import EditPackageForm from '../AdminSide/Pages/Packages/EditPackageForm';
 import AddPackageImage from '../AdminSide/Pages/Packages/AddPackageImage';
 import CategoryList from '../AdminSide/Pages/Categories/CategoryList';
+import AddCategoryForm from '../AdminSide/Pages/Categories/AddCategoryForm';
 
 const AdminWrapper = () => {
   const routes = useRoutes([
@@ -34,6 +35,7 @@ const AdminWrapper = () => {
         { path: 'add-package-images/', element: <AddPackageImage/> },
 
         { path: 'categories-list/', element: <CategoryList/> },
+        { path: 'add-category/', element: <AddCategoryForm/> },
       ],
     },
   ]);

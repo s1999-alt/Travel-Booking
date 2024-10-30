@@ -39,7 +39,7 @@ const CategoryList = () => {
   return (
     <div className='category-list-container'>
       <h2 className='category-list-heading'>Category List</h2>
-      <Link to="/admin/add-category">
+      <Link to="/admin/add-category/">
           <button className="add-packages-button">Add Categories</button> 
       </Link>
       <table className='category-list-table'>

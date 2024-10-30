@@ -65,6 +65,11 @@ class CategoryBlockUnblockView(generics.RetrieveUpdateAPIView):
         instance.save()
         serializer = self.get_serializer(instance)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+#Category update and fetch with 'id' view in admin side
+class CategoryUpdateView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
   
 
 
