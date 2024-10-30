@@ -7,6 +7,7 @@ import './admin-layout.scss';
 import AdminList from '../AdminSide/Pages/List/AdminList';
 import PackageList from '../AdminSide/Pages/Packages/PackageList';
 import AddPackageForm from '../AdminSide/Pages/Packages/AddPackageForm';
+import EditPackageForm from '../AdminSide/Pages/Packages/EditPackageForm';
 
 const AdminWrapper = () => {
   const routes = useRoutes([
@@ -25,6 +26,7 @@ const AdminWrapper = () => {
         { path: 'admin-listuser/', element: <AdminList/> },
         { path: 'package-list/', element: <PackageList/> },
         { path: 'add-package/', element: <AddPackageForm/> },
+        { path: 'edit-package/:id', element: <EditPackageForm/> },
       ],
     },
   ]);

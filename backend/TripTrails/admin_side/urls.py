@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import UserListView, UserBlockUnblockView, AdminPackageListView, PackageBlockUnblockView, ContinentListView, PackageCreateView, CategoryListView, InclusionListView, ExclusionListView, AdminHotelCreateView, AdminHotelListView
+from .views import UserListView, UserBlockUnblockView, AdminPackageListView, PackageBlockUnblockView, ContinentListView, PackageCreateView, CategoryListView, InclusionListView, ExclusionListView, AdminHotelCreateView, AdminHotelListView, PackageUpdateView
 
 urlpatterns = [
   path('users/', UserListView.as_view(), name='user-list'),
@@ -8,6 +8,7 @@ urlpatterns = [
 
   path('packages/', AdminPackageListView.as_view(), name='admin-packagelist'),
   path('packages/create/', PackageCreateView.as_view(), name='package-create'),
+  path('packages/update/<int:pk>',PackageUpdateView.as_view(),name='package-update'),
   path('packages/block/<int:pk>/',PackageBlockUnblockView.as_view(),name='package-block-unblock'),
 
 

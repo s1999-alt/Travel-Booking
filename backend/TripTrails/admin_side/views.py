@@ -14,12 +14,9 @@ class UserListView(generics.ListAPIView):
   serializer_class = UserListSerializer
   # permission_classes = [permissions.IsAdminUser]
 
-
-
 #User Block/Unblock View in AdminSide
 class UserBlockUnblockView(APIView):
   # permission_classes = [permissions.IsAdminUser]
-
   def post(self, request, user_id):
     try:
       user = User.objects.get(id=user_id)
@@ -28,6 +25,7 @@ class UserBlockUnblockView(APIView):
       return Response({'status':'success', 'is_active': user.is_active}, status=status.HTTP_200_OK)
     except User.DoesNotExist:
       return Response({'error': 'User not found'}, status=status.HTTP_404_NOT_FOUND)
+
 
 
 #category List view in admin side
@@ -53,6 +51,7 @@ class CategoryCreateView(generics.CreateAPIView):
     headers = self.get_success_headers(serializer.data)
     return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
   
+
 
 
 #Continent Listing View in Admin side
@@ -83,8 +82,12 @@ class PackageCreateView(generics.CreateAPIView):
             
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
-        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)  
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers) 
 
+#packages update/edit in admin side view
+class PackageUpdateView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Packages.objects.all()
+    serializer_class = PackageSerializer 
 
 #Packages Block and UnBlock View in AdminSide
 class PackageBlockUnblockView(generics.RetrieveUpdateAPIView):
@@ -104,7 +107,6 @@ class PackageBlockUnblockView(generics.RetrieveUpdateAPIView):
 class InclusionListView(generics.ListAPIView):
     queryset = Inclusions.objects.all()
     serializer_class = InclusionsSerializer  
-
 
 class ExclusionListView(generics.ListAPIView):
     queryset = Exclusions.objects.all()

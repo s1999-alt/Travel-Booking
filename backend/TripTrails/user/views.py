@@ -37,7 +37,7 @@ class PackageListView(generics.ListCreateAPIView):
 class packageDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Packages.objects.all()
     serializer_class = PackageSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
 
 class ItineraryListView(generics.ListCreateAPIView):

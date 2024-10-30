@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { AdminAxios } from '../../../axios_instances/Axios_instance'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './package-list.css'
 
 const PackageList = () => {
+  const navigate = useNavigate()
   const [packages, setPackages] = useState([])
 
   useEffect(()=>{
@@ -39,6 +40,10 @@ const PackageList = () => {
     } catch (error) {
       console.log('Error deleting package', error)
     }
+  }
+
+  const handleEdit = (packageId) => {
+    navigate(`/admin/edit-package/${packageId}`)
   }
 
   return (
@@ -84,7 +89,7 @@ const PackageList = () => {
                   </button>
                 )
                 }
-                {/* <button style={{backgroundColor:'grey'}} onClick={() => handleEdit(pack.id)}>Edit</button> */}
+                <button style={{backgroundColor:'grey'}} onClick={() => handleEdit(pack.id)}>Edit</button>
                 <button className='delete-button' onClick={() => handleDelete(pack.id)}>Delete</button>
               </td>
             </tr>

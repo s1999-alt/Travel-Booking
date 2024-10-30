@@ -6,6 +6,8 @@ import {jwtDecode} from 'jwt-decode'
 import { useEffect, useState } from 'react';
 import UserContext from './context/UserContext';
 import AdminWrapper from './wrapper/AdminWrapper';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify'
 
 function App() {
   const [userInfo, setUserInfo] = useState({});
@@ -54,6 +56,7 @@ function App() {
           </Routes>
         </UserContext.Provider>
       </Router>
+      <ToastContainer/>
     </>
   );
 }
