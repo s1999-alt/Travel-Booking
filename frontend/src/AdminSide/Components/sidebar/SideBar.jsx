@@ -12,6 +12,7 @@ import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import SettingsSystemDaydreamOutlinedIcon from "@mui/icons-material/SettingsSystemDaydreamOutlined";
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import ImageIcon from '@mui/icons-material/Image';
 import { Link } from 'react-router-dom';
 
 
@@ -43,6 +44,12 @@ const SideBar = () => {
             <li>
               <StoreIcon className="icon" />
               <span>Packages</span>
+            </li>
+          </Link>
+          <Link to="add-package-images/" style={{ textDecoration: "none" }}>
+            <li>
+              <ImageIcon className="icon" />
+              <span>Add Package-Image</span>
             </li>
           </Link>
           <li>

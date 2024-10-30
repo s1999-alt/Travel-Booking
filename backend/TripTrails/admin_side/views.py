@@ -1,10 +1,10 @@
 from django.contrib.auth.models import User
 from rest_framework import generics, permissions
-from .serializers import UserListSerializer, CategorySerializer, PackageSerializer, AdminPackageListSerializer, ContinentSerializer, InclusionsSerializer, ExclusionsSerializer, AdminHotelSerializer
+from .serializers import UserListSerializer, CategorySerializer, PackageSerializer, AdminPackageListSerializer, ContinentSerializer, InclusionsSerializer, ExclusionsSerializer, AdminHotelSerializer, PackageImageSerializer
 from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.response import Response
-from .models import Packages, Category, Continent, Inclusions, Exclusions, Hotels
+from .models import Packages, Category, Continent, Inclusions, Exclusions, Hotels, PackageImages
 
 
 
@@ -100,7 +100,18 @@ class PackageBlockUnblockView(generics.RetrieveUpdateAPIView):
       instance.save()
       serializer = self.get_serializer(instance)
       return Response(serializer.data, status=status.HTTP_200_OK)
-    
+
+
+#Package-images add View in AdminSide
+class PackageImageCreateView(generics.CreateAPIView):
+   queryset = PackageImages.objects.all()
+   serializer_class = PackageImageSerializer
+
+   def create(self, request, *args, **kwargs):
+      serializer = self.get_serializer(data=request.data)
+      serializer.is_valid(raise_exception=True)
+      serializer.save()
+      return Response(serializer.data, status=status.HTTP_201_CREATED)  
 
 
 #inclusions and exclusions list view

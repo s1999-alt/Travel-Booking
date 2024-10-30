@@ -8,6 +8,7 @@ import AdminList from '../AdminSide/Pages/List/AdminList';
 import PackageList from '../AdminSide/Pages/Packages/PackageList';
 import AddPackageForm from '../AdminSide/Pages/Packages/AddPackageForm';
 import EditPackageForm from '../AdminSide/Pages/Packages/EditPackageForm';
+import AddPackageImage from '../AdminSide/Pages/Packages/AddPackageImage';
 
 const AdminWrapper = () => {
   const routes = useRoutes([
@@ -27,6 +28,7 @@ const AdminWrapper = () => {
         { path: 'package-list/', element: <PackageList/> },
         { path: 'add-package/', element: <AddPackageForm/> },
         { path: 'edit-package/:id', element: <EditPackageForm/> },
+        { path: 'add-package-images/', element: <AddPackageImage/> },
       ],
     },
   ]);
