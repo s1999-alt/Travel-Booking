@@ -25,6 +25,8 @@ class UserBlockUnblockView(APIView):
       return Response({'status':'success', 'is_active': user.is_active}, status=status.HTTP_200_OK)
     except User.DoesNotExist:
       return Response({'error': 'User not found'}, status=status.HTTP_404_NOT_FOUND)
+    
+
 
 
 
@@ -50,7 +52,21 @@ class CategoryCreateView(generics.CreateAPIView):
     self.perform_create(serializer)
     headers = self.get_success_headers(serializer.data)
     return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
+#category Block and Unblock view in admin side
+class CategoryBlockUnblockView(generics.RetrieveUpdateAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    # permission_classes = [IsAuthenticated]
+                    
+    def update(self, request, *args, **kwargs):
+        instance = self.get_object()
+        instance.is_available = not instance.is_available
+        instance.save()
+        serializer = self.get_serializer(instance)
+        return Response(serializer.data, status=status.HTTP_200_OK)
   
+
 
 
 
@@ -60,7 +76,8 @@ class ContinentListView(generics.ListAPIView):
   serializer_class = ContinentSerializer
 
 
-    
+
+
 
 #Packages Listing View in AdminSide
 class AdminPackageListView(generics.ListAPIView):
@@ -101,7 +118,6 @@ class PackageBlockUnblockView(generics.RetrieveUpdateAPIView):
       serializer = self.get_serializer(instance)
       return Response(serializer.data, status=status.HTTP_200_OK)
 
-
 #Package-images add View in AdminSide
 class PackageImageCreateView(generics.CreateAPIView):
    queryset = PackageImages.objects.all()
@@ -112,6 +128,9 @@ class PackageImageCreateView(generics.CreateAPIView):
       serializer.is_valid(raise_exception=True)
       serializer.save()
       return Response(serializer.data, status=status.HTTP_201_CREATED)  
+   
+
+
 
 
 #inclusions and exclusions list view
@@ -122,6 +141,8 @@ class InclusionListView(generics.ListAPIView):
 class ExclusionListView(generics.ListAPIView):
     queryset = Exclusions.objects.all()
     serializer_class = ExclusionsSerializer
+
+
 
 
 
