@@ -160,7 +160,7 @@ class AdminHotelListView(generics.ListAPIView):
     queryset = Hotels.objects.all()
     serializer_class = AdminHotelSerializer
 
-class AdminHotelView(generics.RetrieveUpdateDestroyAPIView):
+class AdminHotelUpdateView(generics.RetrieveUpdateDestroyAPIView):
     queryset =  Hotels.objects.all()  
     serializer_class = AdminHotelSerializer
 

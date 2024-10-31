@@ -4,7 +4,6 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
-import StoreIcon from "@mui/icons-material/Store";
 import InsertChartIcon from "@mui/icons-material/InsertChart";
 import SettingsApplicationsIcon from "@mui/icons-material/SettingsApplications";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
@@ -14,6 +13,8 @@ import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import ImageIcon from '@mui/icons-material/Image';
 import CategoryIcon from '@mui/icons-material/Category';
+import HotelIcon from '@mui/icons-material/Hotel';
+import BackpackIcon from '@mui/icons-material/Backpack';
 import { Link } from 'react-router-dom';
 
 
@@ -43,7 +44,7 @@ const SideBar = () => {
           </Link>
           <Link to="package-list/" style={{ textDecoration: "none" }}>
             <li>
-              <StoreIcon className="icon" />
+              <BackpackIcon className="icon" />
               <span>Packages</span>
             </li>
           </Link>
@@ -57,6 +58,12 @@ const SideBar = () => {
             <li>
               <CategoryIcon className="icon" />
               <span>Categories</span>
+            </li>
+          </Link>
+          <Link to="hotels-list/" style={{ textDecoration: "none" }}>
+            <li>
+              <HotelIcon className="icon" />
+              <span>Hotels</span>
             </li>
           </Link>
           <li>
