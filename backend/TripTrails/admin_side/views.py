@@ -1,10 +1,10 @@
 from django.contrib.auth.models import User
 from rest_framework import generics, permissions
-from .serializers import UserListSerializer, CategorySerializer, PackageSerializer, AdminPackageListSerializer, ContinentSerializer, InclusionsSerializer, ExclusionsSerializer, AdminHotelSerializer, PackageImageSerializer
+from .serializers import UserListSerializer, CategorySerializer, PackageSerializer, AdminPackageListSerializer, ContinentSerializer, InclusionsSerializer, ExclusionsSerializer, AdminHotelSerializer, PackageImageSerializer, BookingSerializer
 from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.response import Response
-from .models import Packages, Category, Continent, Inclusions, Exclusions, Hotels, PackageImages
+from .models import Packages, Category, Continent, Inclusions, Exclusions, Hotels, PackageImages, Booking
 
 
 
@@ -164,5 +164,13 @@ class AdminHotelUpdateView(generics.RetrieveUpdateDestroyAPIView):
     queryset =  Hotels.objects.all()  
     serializer_class = AdminHotelSerializer
 
+
+
+
+
+#Booking List View in Admin-Side
+class BookingListView(generics.ListAPIView):
+    queryset = Booking.objects.all()
+    serializer_class = BookingSerializer
 
 

@@ -1,0 +1,30 @@
+
+.booking-table-container {
+  margin: 20px;
+  overflow-x: auto;
+}
+
+.booking-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.booking-table th,
+.booking-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  font-size: small; /* Decrease font size */
+  text-align: center;
+}
+
+.booking-table th {
+  background-color: #f2f2f2;
+}
+
+.booking-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.booking-table tbody tr:hover {
+  background-color: #ddd;
+}

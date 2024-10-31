@@ -15,6 +15,7 @@ import ImageIcon from '@mui/icons-material/Image';
 import CategoryIcon from '@mui/icons-material/Category';
 import HotelIcon from '@mui/icons-material/Hotel';
 import BackpackIcon from '@mui/icons-material/Backpack';
+import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
 import { Link } from 'react-router-dom';
 
 
@@ -64,6 +65,12 @@ const SideBar = () => {
             <li>
               <HotelIcon className="icon" />
               <span>Hotels</span>
+            </li>
+          </Link>
+          <Link to="booking-table/" style={{ textDecoration: "none" }}>
+            <li>
+              <FormatListNumberedIcon className="icon" />
+              <span>Bookings</span>
             </li>
           </Link>
           <li>
