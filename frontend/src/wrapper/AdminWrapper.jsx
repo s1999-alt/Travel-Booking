@@ -11,6 +11,7 @@ import EditPackageForm from '../AdminSide/Pages/Packages/EditPackageForm';
 import AddPackageImage from '../AdminSide/Pages/Packages/AddPackageImage';
 import CategoryList from '../AdminSide/Pages/Categories/CategoryList';
 import AddCategoryForm from '../AdminSide/Pages/Categories/AddCategoryForm';
+import EditCategoryForm from '../AdminSide/Pages/Categories/EditCategoryForm';
 
 const AdminWrapper = () => {
   const routes = useRoutes([
@@ -36,6 +37,7 @@ const AdminWrapper = () => {
 
         { path: 'categories-list/', element: <CategoryList/> },
         { path: 'add-category/', element: <AddCategoryForm/> },
+        { path: 'edit-category/:id', element: <EditCategoryForm/> },
       ],
     },
   ]);

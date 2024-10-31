@@ -32,9 +32,9 @@ const CategoryList = () => {
     }
   };
 
-  // const handleEdit = (categoryId) =>{
-  //   navigate(`/admin/edit-category/${categoryId}`)
-  // }
+  const handleEdit = (categoryId) =>{
+    navigate(`/admin/edit-category/${categoryId}`)
+  }
 
   return (
     <div className='category-list-container'>
@@ -72,7 +72,7 @@ const CategoryList = () => {
                     List
                   </button>
                 )}
-                {/* <button onClick={() => handleEdit(category.id)}>Edit</button> */}
+                <button onClick={() => handleEdit(category.id)}>Edit</button>
               </td>
             </tr>
           ))}

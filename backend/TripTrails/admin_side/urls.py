@@ -20,8 +20,8 @@ urlpatterns = [
   path('categories/list/', CategoryListView.as_view(), name='category-list'),
   path('categories/create/', CategoryCreateView.as_view(), name='category-create'),
   path('categories/block/<int:pk>/', CategoryBlockUnblockView.as_view(), name='category-block-unblock'),
-  path('categories/update/<int:pk>/',  CategoryUpdateView.as_view(), name='category-update'),
   path('categories/<int:pk>/', CategoryUpdateView.as_view(), name='category-details'),
+  path('categories/update/<int:pk>/',  CategoryUpdateView.as_view(), name='category-update'),
 
 
   path('inclusions/', InclusionListView.as_view(), name='inclusions-list'),
