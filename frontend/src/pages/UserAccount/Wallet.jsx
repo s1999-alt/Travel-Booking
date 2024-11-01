@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import './walletpage.css';
 import { Link, useParams } from 'react-router-dom';
 import { UserAxios } from '../../axios_instances/Axios_instance';
-import UserContext from '../../context/UserContext';
 
 const Wallet = () => {
   const { id } = useParams();

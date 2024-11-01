@@ -1,0 +1,126 @@
+.booking-detail-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.booking-section {
+  margin-bottom: 20px;
+}
+
+.booking-section h2,
+.booking-section h3 {
+  margin: 0 0 10px;
+  font-size: 1.5rem;
+}
+
+.booking-section p {
+  margin: 0 0 5px;
+  font-size: 1rem;
+}
+
+.booking-section hr {
+  border: none;
+  border-top: 1px solid #343333;
+  margin: 10px 0;
+}
+
+.left-section,
+.right-section {
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.left-section img {
+  max-width: 70%;
+  border-radius: 12px;
+  border: 1px solid #ccc;;
+}
+
+.cancel-booking-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2rem;
+  background-color: #ff6347;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cancel-booking-button:hover {
+  background-color: #ff3e1a;
+}
+
+/* Styling for the modal overlay (background outside the modal) */
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.75); /* Dark semi-transparent overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Ensure it appears above other elements */
+  position: fixed; /* Make it cover the entire page */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Styling for the modal content */
+.ReactModal__Content {
+  max-width: 400px;
+  width: 90%; /* Add responsive width for smaller screens */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  text-align: center;
+  color: #333;
+  z-index: 1100; /* Ensure content stays above overlay */
+}
+
+.ReactModal__Content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.ReactModal__Content button {
+  padding: 8px 16px;
+  font-size: 1rem;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.ReactModal__Content button:first-of-type {
+  background-color: #ff6347;
+  color: #fff;
+}
+
+.ReactModal__Content button:first-of-type:hover {
+  background-color: #ff3e1a;
+}
+
+.ReactModal__Content button:last-of-type {
+  background-color: #ccc;
+}
+
+.ReactModal__Content button:last-of-type:hover {
+  background-color: #b3b3b3;
+}
+
+/* Styling for error messages in the modal */
+.error-message {
+  color: #d9534f;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+

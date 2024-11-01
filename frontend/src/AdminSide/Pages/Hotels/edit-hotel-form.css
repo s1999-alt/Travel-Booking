@@ -26,7 +26,7 @@ textarea {
   box-sizing: border-box;
 }
 
-button {
+.edithotel-btn {
   background-color: #4caf50;
   color: white;
   padding: 10px 15px;
@@ -35,7 +35,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.edithotel-btn:hover {
   background-color: #45a049;
 }
 

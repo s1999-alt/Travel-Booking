@@ -60,7 +60,7 @@ const AdminBookingTable = () => {
               <td>{booking.total}</td>
               <td>
                 <button>
-                  <Link to={`/admin/AdminBookingDetails/${booking.id}`} style={{color:'white'}}>show</Link>
+                  <Link to={`/admin/admin-booking-details/${booking.id}`} style={{color:'white'}}>show</Link>
                 </button>
               </td>
             </tr>

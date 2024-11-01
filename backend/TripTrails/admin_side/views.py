@@ -1,10 +1,11 @@
 from django.contrib.auth.models import User
+from decimal import Decimal
 from rest_framework import generics, permissions
-from .serializers import UserListSerializer, CategorySerializer, PackageSerializer, AdminPackageListSerializer, ContinentSerializer, InclusionsSerializer, ExclusionsSerializer, AdminHotelSerializer, PackageImageSerializer, BookingSerializer
+from .serializers import UserListSerializer, CategorySerializer, PackageSerializer, AdminPackageListSerializer, ContinentSerializer, InclusionsSerializer, ExclusionsSerializer, AdminHotelSerializer, PackageImageSerializer, BookingSerializer, WalletSerializer
 from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.response import Response
-from .models import Packages, Category, Continent, Inclusions, Exclusions, Hotels, PackageImages, Booking
+from .models import Packages, Category, Continent, Inclusions, Exclusions, Hotels, PackageImages, Booking, Wallet, WalletTransaction
 
 
 
@@ -172,5 +173,57 @@ class AdminHotelUpdateView(generics.RetrieveUpdateDestroyAPIView):
 class BookingListView(generics.ListAPIView):
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
+
+#Booking Details List View in Admin-Side
+class BookingDetailView(generics.RetrieveUpdateDestroyAPIView):
+   queryset = Booking.objects.all()
+   serializer_class = BookingSerializer
+
+   def update(self, request, *args, **kwargs):
+      instance = self.get_object()
+      data = request.data
+
+      if 'status' in data and 'booking_status' in data:
+         instance.status = data['status']
+         instance.booking_status = data['booking_status']
+         instance.save()
+         return Response(self.get_serializer(instance).data, status=status.HTTP_200_OK)
+      else:
+        return Response({'error': 'Missing status or booking_status in request data'}, status=status.HTTP_400_BAD_REQUEST)
+      
+
+
+
+
+
+#wallet view in admin side for returning the amount when booking is cancelled by admin
+class WalletView(generics.RetrieveUpdateAPIView):
+    queryset=Wallet.objects.all()
+    serializer_class = WalletSerializer
+    lookup_field = 'user'
+
+    def update(self, request, *args, **kwargs):
+        instance = self.get_object()
+        data = request.data
+
+        if 'balance' in data:
+            old_balance = instance.balance
+            new_balance = Decimal(data['balance'])
+
+            instance.balance = new_balance
+            instance.save()
+
+            if new_balance != old_balance:
+                transaction_type = 'Credit' if new_balance > old_balance else 'Debit'
+                amount = abs(new_balance - old_balance)
+                WalletTransaction.objects.create(
+                    user = instance.user,
+                    amount = amount,
+                    transaction_type = transaction_type 
+                )   
+
+            return Response(self.get_serializer(instance).data, status=status.HTTP_200_OK)
+        else:
+            return Response({'error': 'Missing balance in request data'}, status=status.HTTP_400_BAD_REQUEST)
 
 

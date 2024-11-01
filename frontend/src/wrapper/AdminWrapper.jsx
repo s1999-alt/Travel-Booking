@@ -16,6 +16,7 @@ import HotelList from '../AdminSide/Pages/Hotels/HotelList';
 import AddHotelForm from '../AdminSide/Pages/Hotels/AddHotelForm';
 import EditHotelForm from '../AdminSide/Pages/Hotels/EditHotelForm';
 import AdminBookingTable from '../AdminSide/Pages/Bookings/AdminBookingTable';
+import AdminBookingDetailPage from '../AdminSide/Pages/Bookings/AdminBookingDetailPage';
 
 const AdminWrapper = () => {
   const routes = useRoutes([
@@ -47,8 +48,9 @@ const AdminWrapper = () => {
         { path: 'add-hotel/', element: <AddHotelForm/>},
         { path: 'edit-hotel/:id', element: <EditHotelForm/>},
 
-        
+
         { path: 'booking-table/', element: <AdminBookingTable/>},
+        { path: 'admin-booking-details/:id', element: <AdminBookingDetailPage/>},
       ],
     },
   ]);

@@ -10,7 +10,7 @@ import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
 
 const NavBar = () => {
   return (
-    <div className="navbar">
+    <div className="admin-navbar">
       <div className="wrapper">
         <div className="search">
           <input type="text" placeholder="Search..." />

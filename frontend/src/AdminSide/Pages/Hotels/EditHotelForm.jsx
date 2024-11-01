@@ -115,7 +115,7 @@ const EditHotelForm = () => {
               />
             </label>
           </div>
-          <button type='submit'>Update Hotel</button>
+          <button className='edithotel-btn' type='submit'>Update Hotel</button>
         </form>
       </div>
     </div>

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import UserListView, UserBlockUnblockView, AdminPackageListView, PackageBlockUnblockView, ContinentListView, PackageCreateView, CategoryListView, InclusionListView, ExclusionListView, AdminHotelCreateView, AdminHotelListView, AdminHotelUpdateView, PackageUpdateView, PackageImageCreateView, CategoryCreateView, CategoryBlockUnblockView, CategoryUpdateView, BookingListView
+from .views import UserListView, UserBlockUnblockView, AdminPackageListView, PackageBlockUnblockView, ContinentListView, PackageCreateView, CategoryListView, InclusionListView, ExclusionListView, AdminHotelCreateView, AdminHotelListView, AdminHotelUpdateView, PackageUpdateView, PackageImageCreateView, CategoryCreateView, CategoryBlockUnblockView, CategoryUpdateView, BookingListView, BookingDetailView, WalletView
 
 urlpatterns = [
   path('users/', UserListView.as_view(), name='user-list'),
@@ -33,6 +33,9 @@ urlpatterns = [
   path('hotels/update/<int:pk>/', AdminHotelUpdateView.as_view(), name='hotels-list'),
 
   path('bookings/', BookingListView.as_view(), name='booking-list'),
+  path('bookings/<int:pk>/', BookingDetailView.as_view(), name='admin-booking-detail'),
+
+  path('wallet/<int:user>/', WalletView.as_view(), name='wallet'),
 
 ]
 

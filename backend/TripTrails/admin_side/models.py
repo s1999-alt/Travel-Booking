@@ -132,7 +132,7 @@ class Booking(models.Model):
     ('Ongoing' , 'Ongoing'),
     ('Completed' , 'Completed'),
     ('Cancelled' , 'Cancelled'),
-    ('Cancelled by FindMe' , 'Cancelled by FindMe'),
+    ('Cancelled by TripTrails' , 'Cancelled by TripTrails'),
   ]
 
   user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -147,7 +147,7 @@ class Booking(models.Model):
   status = models.CharField(max_length=50, choices=PAYMENT_STATUS_CHOICES , default='Pending Payment')
   payment_method = models.CharField(max_length=20, choices=PAYMENT_METHOD_CHOICES, default='Not-paid')
   booking_number = models.CharField(max_length=20, unique=True, blank=True, null=True)
-  booking_status = models.CharField(max_length=20, choices=BOOKING_STATUS_CHOICES, default='Upcoming')
+  booking_status = models.CharField(max_length=50, choices=BOOKING_STATUS_CHOICES, default='Upcoming')
   wallet_paid = models.DecimalField(max_digits=10, decimal_places=2, default=0)
 
   def __str__(self):
