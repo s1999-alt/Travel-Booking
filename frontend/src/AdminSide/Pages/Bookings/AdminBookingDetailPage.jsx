@@ -4,7 +4,7 @@ import { FaUser, FaPhone, FaEnvelope, FaMapMarkerAlt, FaCalendarAlt, FaRupeeSign
 import Modal from 'react-modal';
 import { toast } from 'react-toastify';
 import { AdminAxios } from '../../../axios_instances/Axios_instance';
-import './booking-detail-page.css';
+import './admin-booking-detail-page.css';
 
 Modal.setAppElement('#root');
 
@@ -55,6 +55,7 @@ const AdminBookingDetailPage = () => {
         status: 'Returned',
         booking_status: 'Cancelled by TripTrails',
       });
+
       const newWalletBalance = parseFloat(walletAmount) + parseFloat(bookingDetails.total);
       await AdminAxios.patch(`api/admin/wallet/${bookingDetails.user}/`, {
         balance: newWalletBalance,

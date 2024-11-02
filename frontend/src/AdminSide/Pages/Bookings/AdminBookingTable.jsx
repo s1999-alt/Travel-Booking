@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import './admin-booking-table.css'
 
 
-
 const AdminBookingTable = () => {
   const [bookings, setBookings] = useState([])
 
@@ -21,9 +20,9 @@ const AdminBookingTable = () => {
   },[])
 
   return (
-    <div className="booking-table-container">
+    <div className="admin-booking-table-container">
       <h1>Booking Details</h1>
-      <table className="booking-table">
+      <table className="admin-booking-table">
         <thead>
           <tr>
             <th>ID</th>

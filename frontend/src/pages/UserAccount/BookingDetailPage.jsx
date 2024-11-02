@@ -7,24 +7,27 @@ import { toast } from 'react-toastify';
 import { UserAxios } from '../../axios_instances/Axios_instance';
 import UserContext from '../../context/UserContext';
 
+
+Modal.setAppElement('#root');
+
 const BookingDetailPage = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
   const { userInfo } = useContext(UserContext);
   const { id } = useParams();
   const [bookingDetails, setBookingDetails] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [walletAmount, setWalletAmount] = useState(null);
-  const [loading, setLoading] = useState(true);  // Loading state
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchBookingDetails = async () => {
       try {
-        const response = await UserAxios.get(`api/user/bookings/${id}`);
+        const response = await UserAxios.get(`api/user/bookings/${id}/`);
         setBookingDetails(response.data);
-        setLoading(false);
       } catch (error) {
-        setError('Error fetching booking details.');
+        console.log('Error fetching booking details:', error);
+      } finally {
         setLoading(false);
       }
     };
@@ -33,35 +36,38 @@ const BookingDetailPage = () => {
 
   useEffect(() => {
     const fetchWalletBalance = async () => {
-      try {
-        const response = await UserAxios.get(`api/user/wallet/${userInfo.user_id}/`);
-        setWalletAmount(response.data.balance);
-      } catch (error) {
-        console.error('Error fetching wallet balance:', error);
+      if (userInfo.user_id) {
+        try {
+          const response = await UserAxios.get(`api/user/wallet/${userInfo.user_id}/`);
+          setWalletAmount(response.data.balance);
+        } catch (error) {
+          console.log('Error fetching wallet balance:', error);
+        }
       }
     };
+
     fetchWalletBalance();
-  }, [userInfo.user_id]);
+  }, [userInfo]);
 
   const handleCancelBooking = async () => {
     setLoading(true);
     setError(null); 
     try {
-      await UserAxios.put(`api/user/bookings/${id}`, {
+      await UserAxios.put(`api/user/bookings/${id}/`, {
         status: 'Returned',
         booking_status: 'Cancelled',
       });
-      toast.success('Booking cancelled and the amount is refunded in your wallet');
 
       const newWalletBalance = parseFloat(walletAmount) + parseFloat(bookingDetails.total);
-      await UserAxios.put(`api/v1/user/wallet/${userInfo.user_id}/`, {
+      await UserAxios.patch(`api/user/wallet/${userInfo.user_id}/`, {
         balance: newWalletBalance,
       });
 
       setWalletAmount(newWalletBalance);
       setBookingDetails((prevDetails) => ({ ...prevDetails, booking_status: 'Cancelled' }));
       setShowModal(false);
-      setError(null);
+      toast.success('Booking cancelled and the amount is refunded in your wallet');
+      navigate('/userAccount/bookings')
     } catch (error) {
       setError('Error cancelling booking.');
     } finally{
@@ -69,13 +75,8 @@ const BookingDetailPage = () => {
     }
   };
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!bookingDetails) {
-    return <div>Error loading booking details. {error && <p>{error}</p>}</div>;
-  }
+  if (loading) return <div>Loading...</div>;
+  if (!bookingDetails) return <div>No booking details available.</div>;
 
   return (
     <div className="booking-detail-container">
@@ -132,16 +133,15 @@ const BookingDetailPage = () => {
           )}
         </div>
       </div>
-      <button className="cancel-booking-button" onClick={() => setShowModal(true)} disabled={bookingDetails.booking_status === 'Cancelled'}>
-        {bookingDetails.booking_status === 'Cancelled' ? 'Booking Cancelled' : 'Cancel Booking'}
+      <button className="cancel-booking-button" onClick={() => setShowModal(true)} disabled={bookingDetails.booking_status === 'Cancelled' || bookingDetails.booking_status === 'Cancelled by TripTrails'}>
+        {bookingDetails.booking_status === 'Cancelled' || bookingDetails.booking_status === 'Cancelled by TripTrails' ? 'Booking Cancelled' : 'Cancel Booking'}
       </button>
       <Modal
         isOpen={showModal}
         onRequestClose={() => setShowModal(false)}
+        className="ReactModal__Content"       
+        overlayClassName="ReactModal__Overlay"
         contentLabel="Cancel Booking Modal"
-        className="modal-content"       
-        overlayClassName="modal-overlay"
-        ariaHideApp={false}
       >
         <h2>Are you sure you want to cancel this booking?</h2>
         <button onClick={handleCancelBooking} disabled={loading}>Yes</button>

@@ -13,6 +13,7 @@ from django.contrib.auth.models import User
 from django.db import transaction
 from django.shortcuts import redirect
 import stripe
+from decimal import Decimal
 
 
 class RegisterUser(APIView):
@@ -69,7 +70,6 @@ class BookingDetailView(generics.RetrieveUpdateDestroyAPIView):
       else:
         return Response({'error': 'Missing status or booking_status in request data'}, status=status.HTTP_400_BAD_REQUEST)
 
-
 class BookingDataView(generics.ListAPIView):
     serializer_class = BookingSerializer
     def get_queryset(self):
@@ -77,19 +77,21 @@ class BookingDataView(generics.ListAPIView):
         return Booking.objects.filter(user_id=user_id)
     
 
-class WalletView(generics.RetrieveAPIView):
+
+
+class WalletView(generics.RetrieveUpdateAPIView):
   queryset = Wallet.objects.all()
   serializer_class = WalletSerializer
   lookup_field = 'user'
 
 
-  def put(self, request, *args, **kwargs):
+  def update(self, request, *args, **kwargs):
     instance = self.get_object()
     data = request.data
 
     if 'balance' in data:
       old_balance = instance.balance
-      new_balance = data['balance']
+      new_balance = Decimal(data['balance'])
 
       instance.balance = new_balance
       instance.save()

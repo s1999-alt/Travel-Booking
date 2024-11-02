@@ -19,8 +19,8 @@ urlpatterns = [
 
 
     path('bookings/', BookingListView.as_view(), name='booking-list'),
-    path('bookings/<int:pk>', BookingDetailView.as_view(), name='booking-detail'),
-    path('bookings/<int:user_id>/', BookingDataView.as_view(), name='booking-list'),
+    path('bookings/<int:pk>/', BookingDetailView.as_view(), name='booking-detail'),
+    path('bookings/<int:user_id>/user/', BookingDataView.as_view(), name='booking-list'),
 
     path('create-checkout-session/',StripeCheckoutView.as_view(), name='create-checkout-session'),
     path('stripe-success/', StripeSuccessView.as_view(), name='stripe-success'),

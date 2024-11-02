@@ -16,7 +16,7 @@ const BookingTable = () => {
       console.log('------------------------', userInfo.user_id)
       try {
         if(userInfo && userInfo.user_id){
-          const response = await UserAxios.get(`api/user/bookings/${userInfo.user_id}/`)
+          const response = await UserAxios.get(`api/user/bookings/${userInfo.user_id}/user/`)
           setBookings(response.data)
         }else{
           console.log('User info is not available.');

@@ -1,30 +1,30 @@
-
-.booking-table-container {
+.admin-booking-table-container {
   margin: 20px;
   overflow-x: auto;
+  max-width: 100%;
 }
 
-.booking-table {
+.admin-booking-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.booking-table th,
-.booking-table td {
+.admin-booking-table th,
+.admin-booking-table td {
   padding: 12px;
   border: 1px solid #ddd;
-  font-size: small; /* Decrease font size */
+  font-size: small; 
   text-align: center;
 }
 
-.booking-table th {
+.admin-booking-table th {
   background-color: #f2f2f2;
 }
 
-.booking-table tbody tr:nth-child(even) {
+.admin-booking-table tbody tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-.booking-table tbody tr:hover {
+.admin-booking-table tbody tr:hover {
   background-color: #ddd;
 }
