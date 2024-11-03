@@ -14,6 +14,8 @@ import Dashboard from '../pages/UserAccount/Dashboard'
 import BookingTable from '../pages/UserAccount/BookingTable'
 import BookingDetailPage from '../pages/UserAccount/BookingDetailPage'
 import Wallet from '../pages/UserAccount/Wallet'
+import UserProtectedRoute from '../Protected-Routes/UserProtectedRoute'
+import LoginPageRoute from '../Protected-Routes/LoginPageRoute'
 
 const UserWrapper = () => {
   const routes = useRoutes([
@@ -31,11 +33,11 @@ const UserWrapper = () => {
       children:[
         {path: "/", element: <Home/>},
         {path: "/register/", element: <RegisterPage/>},
-        {path: "/login/", element: <LoginPage/>},
+        {path: "/login/", element: (<LoginPageRoute><LoginPage/></LoginPageRoute>)},
         {path: "/logout/", element: <LogoutPage/>},
-        {path: "/packages/:id", element: <TourDetails/>},
-        {path: "/bookingconfirm/:bookingId", element:<BookingConfirm/>},
-        {path: "/success", element: <SuccessPage/>}
+        {path: "/packages/:id", element: (<UserProtectedRoute><TourDetails/></UserProtectedRoute>)},
+        {path: "/bookingconfirm/:bookingId", element: (<UserProtectedRoute><BookingConfirm/></UserProtectedRoute>)},
+        {path: "/success", element: (<UserProtectedRoute><SuccessPage/></UserProtectedRoute>) }
       ],
     },
 
@@ -52,10 +54,10 @@ const UserWrapper = () => {
         </>
       ),
       children:[
-        {path: "/userAccount/", element: <Dashboard/>},
-        {path: "/userAccount/bookings", element: <BookingTable/>},
-        {path: "/userAccount/bookings/:id", element: <BookingDetailPage/>},
-        {path: "/userAccount/wallet/:id", element: <Wallet/>},
+        {path: "/userAccount/", element:(<UserProtectedRoute><Dashboard/></UserProtectedRoute> )},
+        {path: "/userAccount/bookings", element: (<UserProtectedRoute><BookingTable/></UserProtectedRoute>)},
+        {path: "/userAccount/bookings/:id", element: (<UserProtectedRoute><BookingDetailPage/></UserProtectedRoute>)},
+        {path: "/userAccount/wallet/:id", element: (<UserProtectedRoute><Wallet/></UserProtectedRoute>)},
       ],
     },
   ])
