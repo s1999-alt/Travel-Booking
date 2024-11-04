@@ -16,11 +16,17 @@ import CategoryIcon from '@mui/icons-material/Category';
 import HotelIcon from '@mui/icons-material/Hotel';
 import BackpackIcon from '@mui/icons-material/Backpack';
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
 const SideBar = () => {
+  const navigate = useNavigate()
+  const handleLogout = () =>{
+    localStorage.removeItem('admin_access_token')
+    navigate('/admin/login/',{ replace:true })
+    window.location.reload()
+  }
   return (
     <div className="sidebar">
       <div className="top">
@@ -108,7 +114,7 @@ const SideBar = () => {
             <AccountCircleOutlinedIcon className="icon" />
             <span>Profile</span>
           </li>
-          <li>
+          <li onClick={handleLogout}>
             <ExitToAppIcon className="icon" />
             <span>Logout</span>
           </li>

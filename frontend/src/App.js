@@ -26,14 +26,14 @@ function App() {
 
       if (response.status === 200) {
         const decodedToken = jwtDecode(access_key);
-        setUserInfo({'access_token': access_key, 'username': decodedToken.username, 'user_id':decodedToken.user_id});
+        setUserInfo({ 'access_token': access_key, 'username': decodedToken.username, 'user_id':decodedToken.user_id, 'is_staff':decodedToken.is_staff, 'is_superuser':decodedToken.is_superuser });
       } else {
-        setUserInfo({'access_token': null,'username': null,'user_id': null});
+        setUserInfo({'access_token': null, 'username': null, 'user_id': null, 'is_staff': null, 'is_superuser': null});
       }
 
     } catch (error) {
       console.error('Token verification failed:', error);
-      setUserInfo({'access_token': null,'username': null,'user_id': null});
+      setUserInfo({'access_token': null, 'username': null, 'user_id': null, 'is_staff': null, 'is_superuser': null});
     }
 
   };
