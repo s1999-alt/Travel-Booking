@@ -16,13 +16,25 @@
     padding: 5px;
     border-radius: 5px;
 
-    &.Approved {
+    &.Completed {
       color: green;
       background-color: rgba(0, 128, 0, 0.151);
     }
-    &.Pending {
+    &.Upcoming {
       color: goldenrod;
       background-color: rgba(189, 189, 3, 0.103);
+    }
+    &.Ongoing {
+      color: skyblue;
+      background-color: rgba(189, 189, 3, 0.103);
+    }
+    &.Cancelled {
+      color: red;
+      background-color: rgba(144, 144, 82, 0.103);
+    }
+    &.Cancelled by TripTrails {
+      color: red;
+      background-color: rgba(148, 147, 112, 0.103);
     }
   }
 }

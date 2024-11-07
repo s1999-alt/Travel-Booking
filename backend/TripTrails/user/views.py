@@ -16,6 +16,7 @@ import stripe
 from decimal import Decimal
 
 
+# View for registering the user 
 class RegisterUser(APIView):
   permission_classes = [AllowAny]
   def post(self, request):
@@ -27,20 +28,27 @@ class RegisterUser(APIView):
   
    
 
+
+
+# Package List view in user side
 class PackageListView(generics.ListCreateAPIView):
   queryset = Packages.objects.all()
   serializer_class = PackageSerializer
 
   def get_queryset(self):
-    return Packages.objects.filter(category__is_available = True)
+    return Packages.objects.filter(is_active = True, category__is_available = True)
   
-
+#package details view according to their id in user side
 class packageDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Packages.objects.all()
     serializer_class = PackageSerializer
     # permission_classes = [IsAuthenticated]
 
 
+
+
+
+# Itinarary list view in userside
 class ItineraryListView(generics.ListCreateAPIView):
    serializer_class = ItinararySerializer
 
@@ -49,11 +57,15 @@ class ItineraryListView(generics.ListCreateAPIView):
       return Itinarary.objects.filter(package_id=package_id)
 
 
+
+
+
+# Booking list view in user side
 class BookingListView(generics.ListCreateAPIView):
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
 
-# view for the detailed information of bookings when click the show
+# view for the detailed information of bookings when click the show in userside
 class BookingDetailView(generics.RetrieveUpdateDestroyAPIView):
    queryset = Booking.objects.all()
    serializer_class = BookingSerializer
@@ -70,6 +82,7 @@ class BookingDetailView(generics.RetrieveUpdateDestroyAPIView):
       else:
         return Response({'error': 'Missing status or booking_status in request data'}, status=status.HTTP_400_BAD_REQUEST)
 
+# Bookings View according to the userid in every user account
 class BookingDataView(generics.ListAPIView):
     serializer_class = BookingSerializer
     def get_queryset(self):
@@ -79,11 +92,11 @@ class BookingDataView(generics.ListAPIView):
 
 
 
+# Wallet View for showing and updating the user wallet when they add and debit money using wallet 
 class WalletView(generics.RetrieveUpdateAPIView):
   queryset = Wallet.objects.all()
   serializer_class = WalletSerializer
   lookup_field = 'user'
-
 
   def update(self, request, *args, **kwargs):
     instance = self.get_object()
@@ -109,7 +122,7 @@ class WalletView(generics.RetrieveUpdateAPIView):
     else:
       return Response({'error': 'Missing balance in request data'}, status=status.HTTP_400_BAD_REQUEST)
 
-
+# List all the Transactions in the userside
 class WalletTransactionsView(generics.ListAPIView):
     serializer_class = WalletTransactionSerializer
 
@@ -118,6 +131,7 @@ class WalletTransactionsView(generics.ListAPIView):
         return WalletTransaction.objects.filter(user=user_id)
     
 
+# View for the Stripe payments with using the wallet. Manage the amount less than and greater than the wallet
 stripe.api_key = settings.STRIPE_SECRET_KEY
 class StripeCheckoutView(APIView):
   User = get_user_model()
@@ -236,6 +250,7 @@ class StripeCheckoutView(APIView):
 
 
 
+#Stripe Success view when the payment is success
 class StripeSuccessView(APIView):
     def get(self, request):
         try:

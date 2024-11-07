@@ -11,6 +11,7 @@ urlpatterns = [
   path('packages/update/<int:pk>',PackageUpdateView.as_view(),name='package-update'),
   path('packages/block/<int:pk>/',PackageBlockUnblockView.as_view(),name='package-block-unblock'),
 
+
   path('addPackage-image/',PackageImageCreateView.as_view(),name='addPackage-image'),
 
 
@@ -32,8 +33,10 @@ urlpatterns = [
   path('hotels/list/', AdminHotelListView.as_view(), name='hotels-list'),
   path('hotels/update/<int:pk>/', AdminHotelUpdateView.as_view(), name='hotels-list'),
 
+
   path('bookings/', BookingListView.as_view(), name='booking-list'),
   path('bookings/<int:pk>/', BookingDetailView.as_view(), name='admin-booking-detail'),
+
 
   path('wallet/<int:user>/', WalletView.as_view(), name='wallet'),
 

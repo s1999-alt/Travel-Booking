@@ -12,6 +12,7 @@ import '../register/register.css'
 import astronaut from '../../assets/astronaut.json'
 import { UserAxios } from '../../axios_instances/Axios_instance';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 function LoginPage() {
   const navigate = useNavigate()
@@ -29,6 +30,7 @@ function LoginPage() {
       localStorage.setItem('access_key', data.access)
       navigate('/', { replace: true})
       window.location.reload()
+      toast.success('Login Successfully')
     }else{
       console.error('Login failed')
     }
